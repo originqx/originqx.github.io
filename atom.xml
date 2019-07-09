@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.originqx.top/"/>
-  <updated>2019-07-04T13:31:26.433Z</updated>
+  <updated>2019-07-09T09:18:02.843Z</updated>
   <id>http://www.originqx.top/</id>
   
   <author>
@@ -20,22 +20,28 @@
     <title>first page</title>
     <link href="http://www.originqx.top/2019/07/04/first-page/"/>
     <id>http://www.originqx.top/2019/07/04/first-page/</id>
-    <published>2019-07-04T13:29:23.000Z</published>
-    <updated>2019-07-04T13:31:26.433Z</updated>
+    <published>2019-07-04T13:29:00.000Z</published>
+    <updated>2019-07-09T09:18:02.843Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: {springlearn}<br>date: {2019.7.4}</p><h2 id="tags-“wu”"><a href="#tags-“wu”" class="headerlink" title="tags: “wu”"></a>tags: “wu”</h2><p>#this is my first blog,congratutaion</p>]]></content>
+    <content type="html"><![CDATA[<hr><p>title: {springlearn}<br>date: {2019.7.4}<br>tags: “java”</p><h2 id="categorys-“随笔”"><a href="#categorys-“随笔”" class="headerlink" title="categorys: “随笔”"></a>categorys: “随笔”</h2><p>#this is my first blog,congratutaion</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;hr&gt;
-&lt;p&gt;title: {springlearn}&lt;br&gt;date: {2019.7.4}&lt;/p&gt;
-&lt;h2 id=&quot;tags-“wu”&quot;&gt;&lt;a href=&quot;#tags-“wu”&quot; class=&quot;headerlink&quot; title=&quot;tags: “wu”&quot;&gt;&lt;/a&gt;tags:
+&lt;p&gt;title: {springlearn}&lt;br&gt;date: {2019.7.4}&lt;br&gt;tags: “java”&lt;/p&gt;
+&lt;h2 id=&quot;categorys-“随笔”&quot;&gt;&lt;a href=&quot;#categorys-“随笔”&quot; class=&quot;headerlink&quot; ti
       
     
     </summary>
     
+      <category term="随笔" scheme="http://www.originqx.top/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="java" scheme="http://www.originqx.top/tags/java/"/>
+    
+      <category term="markdown" scheme="http://www.originqx.top/tags/markdown/"/>
     
   </entry>
   
