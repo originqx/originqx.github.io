@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.originqx.top/"/>
-  <updated>2019-07-09T09:33:52.363Z</updated>
+  <updated>2019-07-09T10:10:44.397Z</updated>
   <id>http://www.originqx.top/</id>
   
   <author>
@@ -17,22 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>first page</title>
+    <title>markdown语法</title>
     <link href="http://www.originqx.top/2019/07/04/first-page/"/>
     <id>http://www.originqx.top/2019/07/04/first-page/</id>
     <published>2019-07-04T13:29:00.000Z</published>
-    <updated>2019-07-09T09:33:52.363Z</updated>
+    <updated>2019-07-09T10:10:44.397Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: {springlearn}<br>date: {2019.7.4}<br>tags: “java”<br>categorys: “随笔”</p><hr><p>#this is my first blog,congratutaion<br><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p><p><img src="/images/avatar.gif" alt="upload successful"></p>]]></content>
+    <content type="html"><![CDATA[<hr><p>#this is my first blog,congraturation</p><p>#一级标题</p><p>##二级标题</p><p>######最多五级标题</p><p>##超链接：<br><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p><p>##字体：<br><em>斜体</em> <strong>粗体</strong> <strong><em>粗斜体</em></strong></p><p>##图片资源：存放在source/images下<br><img src="/images/avatar.gif" alt="图片下标描述" title="图片hint"></p><p>##列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）</p><ul><li>这是一个层级</li></ul><ul><li>这也是</li></ul><ul><li>类似<ul><li>二层级<ul><li>三级</li></ul></li></ul></li></ul><p>##有序列表：</p><ol><li>有空格</li><li>二级<br>##分割行：—或***均可（只需大于三个）</li></ol><hr><hr><hr><p>##引用文字：</p><blockquote><p>这是一段引用文字<br>可换行，遇上空行隔断</p></blockquote><p>##引用代码<br><code>引用一行可用,就算换行也只在一行内，换行算作空格</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">引用多行时可用</span><br><span class="line">均在引用内</span><br></pre></td></tr></table></figure><p>##</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;hr&gt;
-&lt;p&gt;title: {springlearn}&lt;br&gt;date: {2019.7.4}&lt;br&gt;tags: “java”&lt;br&gt;categorys: “随笔”&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;#this is my first blog,congratutaion&lt;br&gt;&lt;a h
+&lt;p&gt;#this is my first blog,congraturation&lt;/p&gt;
+&lt;p&gt;#一级标题&lt;/p&gt;
+&lt;p&gt;##二级标题&lt;/p&gt;
+&lt;p&gt;######最多五级标题&lt;/p&gt;
+&lt;p&gt;##超链接：&lt;br&gt;&lt;a href=&quot;http://www.baidu.com&quot;
       
     
     </summary>
