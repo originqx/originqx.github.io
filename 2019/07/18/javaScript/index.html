@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="originqxの博客">
 <meta property="og:description" content="变量提升JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。 12console.log(a);var a = 1;  上面代码首先使用console.log方法，在控制台（console）显示变量a的值。这时变量a还没有声明和赋值，所以这是一种错误的做">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-18T09:25:04.758Z">
+<meta property="og:updated_time" content="2019-07-22T09:09:48.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript">
 <meta name="twitter:description" content="变量提升JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。 12console.log(a);var a = 1;  上面代码首先使用console.log方法，在控制台（console）显示变量a的值。这时变量a还没有声明和赋值，所以这是一种错误的做">
@@ -251,8 +251,10 @@
 <p>你可以传递任意数量的参数给<code>Function</code>构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">'return "hello world";'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello world'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><code>Function</code>构造函数可以不使用<code>new</code>命令，返回结果完全一样。</p>
-<p>总的来说，这种声明函数的方式非常不直观，几乎无人使用。</p>
+<p><code>Function</code>构造函数可以不使用<code>new</code>命令，返回结果完全一样。<br>总的来说，这种声明函数的方式非常不直观，几乎无人使用。</p>
+<blockquote>
+<p><code>Function</code>的length属性的值表示传入的参数的个数</p>
+</blockquote>
 
       
 
