@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="originqxの博客">
 <meta property="og:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不会">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png%22">
-<meta property="og:updated_time" content="2019-07-26T02:32:10.934Z">
+<meta property="og:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png">
+<meta property="og:updated_time" content="2019-07-26T02:35:50.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="originqxの博客">
 <meta name="twitter:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不会">
-<meta name="twitter:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png%22">
+<meta name="twitter:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png">
   
     <link rel="alternative" href="/atom.xml" title="originqxの博客" type="application/atom+xml">
   
@@ -186,7 +186,7 @@
 
 </li>
 </ul>
-<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png%22" alt></p>
+<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png" alt="传递规则" title="传递规则"></p>
 <h4 id="maven私服"><a href="#maven私服" class="headerlink" title="maven私服"></a>maven私服</h4><p>安装nexus </p>
 <ul>
 <li><p>进入到nexus的安装目录，打开终端cmd，执行<code>nexus.bat install</code>，然后<code>nexus.bat start</code> 查看windows的服务里面看nexus服务启动，可在<a href="http://localhost:8081" target="_blank" rel="noopener">localhost:8081</a>查看服务的启动，默认的账户名为<code>admin</code> 密码为<code>admin123</code><br>将项目发布到私服前要将配置maven的配置文件：</p>
