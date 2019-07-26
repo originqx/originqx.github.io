@@ -151,61 +151,37 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-maven的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-sql中的日期类型：time，timestamp，date，datetime" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/">sql中的日期类型：time，timestamp，date，datetime</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/" class="archive-article-date">
+  	<time datetime="2019-07-19T03:35:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="maven中的dependencies与dependencyManagement的区别："><a href="#maven中的dependencies与dependencyManagement的区别：" class="headerlink" title="maven中的dependencies与dependencyManagement的区别："></a>maven中的dependencies与dependencyManagement的区别：</h4><pre><code>由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承；
-在父模块的pom中有dependencies和dependencyManagement两种依赖
-其中在dependencies中的依赖会被子模块继承，
-而dependencyManagement是jar包的声明，在其中定义的jar不会被子模块继承，而是在子模块中可不用声明jar包的版本，会自动的使用父模块中的dependencyManagement的版本号，而子模块如果也声明了版本号，则会用子模块声明的版本号，这样的好处是可以统一所有的子模块的版本号；避免发生版本冲突</code></pre><h4 id="maven的常见仓库："><a href="#maven的常见仓库：" class="headerlink" title="maven的常见仓库："></a>maven的常见仓库：</h4><ul>
-<li>本地仓库:在settings.xml中配置路径，<localrepository>E:\kaifa\mavenware</localrepository></li>
-<li>远程仓库(一般指私服):即公司中的maven仓库服务器。</li>
-<li>中央仓库:maven的管理者的仓库：<a href="http://repo1.maven.org/maven2/" target="_blank" rel="noopener">中央仓库地址</a><br><a href="https://mvnrepository.com/" target="_blank" rel="noopener">常用的查找pom依赖的地址</a></li>
-<li>一般可以配置maven的中央仓库为阿里的库，国内访问比较快.<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="maven常见的命令"><a href="#maven常见的命令" class="headerlink" title="maven常见的命令"></a>maven常见的命令</h4><ul>
-<li>clean 清空项目的target目录，删除之前的maven生成文件</li>
-<li>validate 验证项目是否正确和所有需要的相关资源是否可用</li>
-<li>compile 编译源代码</li>
-<li>test 执行测试单元</li>
-<li>paceage 打包项目，根据pom中的设置的package类型进行打包，一般分为jar，war等</li>
-<li>varify 运行检查</li>
-<li>install 将包安装到Maven本地仓库，供本地其他Maven项目使用</li>
-<li>deploy 将最终的包复制到远程仓库(私服)，供其他开发人员和Maven项目使用<h4 id="maven生命周期"><a href="#maven生命周期" class="headerlink" title="maven生命周期"></a>maven生命周期</h4>Maven的生命周期是对所有的构建过程进行抽象和统一。Maven的生命周期是抽象的，这意味着生命周期本身不做任何实际的工作，生命周期只是定义了一系列的阶段，并确定这些阶段的执行顺序。而在执行这些阶段时，实际的工作还是由插件来完成的。而且这些阶段是有顺序的，并且后面的阶段依赖于前面的阶段，用户和Maven最直接的交互方式就是调用这些生命周期阶段。<br>Maven拥有三套相互独立的生命周期，它们分别为clean，default和site。</li>
-</ul>
-<p>Clean Lifecycle在进行真正的构建之前进行一些清理工作。<br>Default Lifecycle构建的核心部分，编译，测试，打包，部署等等。<br>Site Lifecycle生成项目报告，站点，发布站点。<br>clean生命周期<br>clean生命周期的目的是清理项目，它包含三个阶段：<br>1）pre-clean 执行一些清理前需要完成的工作。<br>2）clean 清理上一次构建生成的文件。<br>3）post-clean 执行一些清理后需要完成的工作。<br>default生命周期<br>default生命周期定义了真正构件时所需要执行的所有步骤，它是生命周期中最核心的部分，它包含的阶段如下：<br>1） validate 验证项目是否正确和所有需要的相关资源是否可用<br>2） initialize 初始化构建<br>3） generate-sources<br>4) process-sources 处理源代码<br>5） generate-resources<br>6) process-resources 处理项目主资源文件。对src/main/resources目录的内容进行变量替换等工作后，复制到项目输出的主classpath目录中。<br>7） compile 编译项目的主源代码<br>8） process-classes<br>9) generate-test-sources<br>10) process-test-sources 处理项目测试资源文件<br>11）generate-test-resources<br>12) process-test-resources 处理测试的资源文件<br>13）test-compile 编译项目的测试代码<br>14）process-test-classes<br>15) test 使用单元测试框架运行测试，测试代码不会被打包或部署<br>16）prepare-package 做好打包的准备<br>17）package 接受编译好的代码，打包成可发布的格式<br>18) pre-integration-test<br>19) integration-test<br>20) postintegration-test<br>21) verify<br>22) install 将包安装到Maven本地仓库，供本地其他Maven项目使用<br>23）deploy 将最终的包复制到远程仓库，供其他开发人员和Maven项目使用<br>site生命周期<br>site生命周期的目的是建立和发布项目站点，Maven能够基于POM所包含的信息，自动生成一个友好的站点，方便团队交流和发布项目信息。该生命周期包含如下阶段：<br>1）pre-site 执行一些在生成项目站点之前需要完成的工作<br>2）site 生成项目站点文档<br>3）post-site 执行一些在生成项目站点之后需要完成的工作<br>4）site-deploy 将生成的项目站点发布到服务器上</p>
-<p>用户在mvn命令后可以指定三个生命周期中的任何阶段，则Maven会按以下逻辑执行：首先会得到该阶段所属生命周期，从该生命周期中的第一个阶段开始按顺序执行，直至该阶段本身。例如执行mvnclean命令会依次执行clean生命周期中的pre-clean阶段及clean阶段。mvn命令后可以指定多个阶段，Maven会按照输入的顺序依次执行，每次执行都会按照之前描述的逻辑执行。<br>注意：上面mvn package这个命令有个问题，执行mvn package的时候会走测试。之前在打包一个springboot项目的时候报数据库连接异常，项目打包之前把数据库配置改为生产环境的数据库配置，mvn package会去执行项目中的测试过程。由于数据库配置是生产环境的，所以连接的时候肯定报错，导致 build 失败。这时候用maven命令在package的时候跳过测试就行了。具体命令如下mvn clean package -Dmaven.test.skip=true ，这样就可以正常打包了。</p>
-<h4 id="maven的依赖规则"><a href="#maven的依赖规则" class="headerlink" title="maven的依赖规则"></a>maven的依赖规则</h4><ul>
-<li>1、第一声明者优先原则:在 pom 文件定义依赖，先声明的依赖为准。</li>
-<li>2、路径近者优先原则:在pom中直接定义的依赖要比传递过来的依赖优先级要高。<br> 当发生依赖冲突的时候，可以排除冲突的依赖： <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">其中的***为jar包的坐标地址</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png" alt="传递规则" title="传递规则"></p>
-<h4 id="maven私服"><a href="#maven私服" class="headerlink" title="maven私服"></a>maven私服</h4><p>安装nexus </p>
-<ul>
-<li><p>进入到nexus的安装目录，打开终端cmd，执行<code>nexus.bat install</code>，然后<code>nexus.bat start</code> 查看windows的服务里面看nexus服务启动，可在<a href="http://localhost:8081" target="_blank" rel="noopener">localhost:8081</a>查看服务的启动，默认的账户名为<code>admin</code> 密码为<code>admin123</code><br>将项目发布到私服前要将配置maven的配置文件：</p>
-</li>
-<li><p>配置服务版本的密码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到正式版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到测试版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到第三方版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置服务的路径：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span> </span><br><span class="line">		<span class="comment">&lt;!--profile的id --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">repository</span>&gt;</span> <span class="comment">&lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span> <span class="comment">&lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span> <span class="comment">&lt;!--是否下载releases构件 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">releases</span>&gt;</span> <span class="comment">&lt;!--是否下载snapshots构件 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span> <span class="comment">&lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span> <span class="comment">&lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span>&gt;</span>public<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">name</span>&gt;</span>Public Repositories<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 profile 定义仓库需要激活才可生效。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>执行mvn deploy根据项目的pom文件的版本发布到不同版本库，</p>
-<h4 id="安装jar包到仓库："><a href="#安装jar包到仓库：" class="headerlink" title="安装jar包到仓库："></a>安装jar包到仓库：</h4><p>–安装第三方jar包到本地仓库</p>
-<p>—-进入jar包所在目录运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dfile=fastjson-1.1.37.jar -Dpackaging=jar<br>—-打开cmd直接运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar</p>
-<p>–安装第三方jar包到私服</p>
-<p>–在settings配置文件中添加登录私服第三方登录信息<br><server><br><id>thirdparty</id><br><username>admin</username><br><password>admin123</password><br></server><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
+        <p>DATETIME类型用在你需要同时包含日期和时间信息的值时。MySQL检索并且以’YYYY-MM-DD HH:MM:SS’格式显示DATETIME值，支持的范围是’1000-01-01 00:00:00’到’9999-12-31 23:59:59’。（“支持”意味着尽管更早的值可能工作，但不能保证他们可以。）</p>
+<p>DATE类型用在你仅需要日期值时，没有时间部分。MySQL检索并且以’YYYY-MM-DD’格式显示DATE值，支持的范围是’1000-01-01’到’9999-12-31’。</p>
+<p>TIMESTAMP列类型提供一种类型，你可以使用它自动地用当前的日期和时间标记INSERT或UPDATE的操作。</p>
+<p>TIME数据类型表示一天中的时间。MySQL检索并且以”HH:MM:SS”格式显示TIME值。支持的范围是’00:00:00’到’23:59:59’。</p>
+<p>创建表SQL<br>CREATE TABLE <code>tb_test</code> (<br>  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,<br>  <code>date1</code> timestamp NOT NULL DEFAULT ‘0000-00-00 00:00:00’ ON UPDATE CURRENT_TIM<br>ESTAMP,<br>  <code>date2</code> date DEFAULT NULL,<br>  <code>date3</code> datetime DEFAULT NULL,<br>  <code>time</code> time DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>)<br>);<br>运行效果截图：</p>
+<p>日期类型         存储空间       日期格式                                      日期范围</p>
+<p>datetime         8 bytes   YYYY-MM-DD HH:MM:SS   1000-01-01 00:00:00 ~ 9999-12-31 23:59:59<br>timestamp      4 bytes   YYYY-MM-DD HH:MM:SS   1970-01-01 00:00:01 ~ 2037-12-31 23:59:59<br>date                3 bytes   YYYY-MM-DD                      1000-01-01 ~ 9999-12-31</p>
+<p>datetime和timestamp的区别：<br>1.datetime 的日期范围比较大；如果有1970年以前的数据还是要用datetime.但是timestamp 所占存储空间比较小。<br>2.timestamp 类型的列还有个特性：默认情况下，在 insert, update 数据时，timestamp 列会自动以当前时间（CURRENT_TIMESTAMP）填充/更新。</p>
+<p>3.timestamp比较受时区timezone的影响以及MYSQL版本和服务器的SQL MODE的影响.</p>
+<p>使用一个常用的格式集的任何一个，你可以指定DATETIME、DATE和TIMESTAMP值：<br>‘YYYY-MM-DD HH:MM:SS’或’YY-MM-DD HH:MM:SS’格式的一个字符串,允许一种”宽松”的语法:任何标点可用作在日期部分和时间部分之间的分隔符。例如，’98-12-31 11:30:45’、’98.12.31 11+30+45’、’98/12/31 11<em>30</em>45’和‘98@12@31 11^30^45’是等价的。</p>
+<p><a href="https://blog.csdn.net/shubingzhuoxue/article/details/52606645" target="_blank" rel="noopener">转载于漱冰濯雪</a></p>
 
       
 
@@ -218,7 +194,404 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/25/maven的使用/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UTF-8编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/16/UTF-8编码/">UTF-8编码</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/16/UTF-8编码/" class="archive-article-date">
+  	<time datetime="2019-07-16T03:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度,他是Unicode的一种实现。</li>
+</ul>
+<p>UTF-8 的编码规则很简单，只有二条：</p>
+<ol>
+<li><p>对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
+</li>
+<li><p>对于n字节的符号（n &gt; 1），第一个字节的前n位都设为1，第n + 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
+</li>
+</ol>
+<p>下表总结了编码规则，字母x表示可用编码的位。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Unicode符号范围     |        UTF<span class="number">-8</span>编码方式</span><br><span class="line">(十六进制)        |              （二进制）</span><br><span class="line">----------------------+---------------------------------------------</span><br><span class="line"><span class="number">0000</span> <span class="number">0000</span><span class="number">-0000</span> <span class="number">007</span>F | <span class="number">0</span>xxxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0080</span><span class="number">-0000</span> <span class="number">07</span>FF | <span class="number">110</span>xxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0800</span><span class="number">-0000</span> FFFF | <span class="number">1110</span>xxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0001</span> <span class="number">0000</span><span class="number">-0010</span> FFFF | <span class="number">11110</span>xxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br></pre></td></tr></table></figure>
+
+<p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。</p>
+<p>下面，还是以汉字严为例，演示如何实现 UTF-8 编码。</p>
+<p>严的 Unicode 是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800 - 0000 FFFF），因此严的 UTF-8 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，严的 UTF-8 编码是11100100 10111000 10100101，转换成十六进制就是E4B8A5。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/16/UTF-8编码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java随记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/12/java随记/">java随记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/12/java随记/" class="archive-article-date">
+  	<time datetime="2019-07-12T02:05:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DateFormat的setlenient（true-false）"><a href="#DateFormat的setlenient（true-false）" class="headerlink" title="DateFormat的setlenient（true/false）"></a>DateFormat的setlenient（true/false）</h3><ul>
+<li>算出能有合法的值,就以计算后的值为真正的值.比如说当你使用的时候有<strong>2012-02-31</strong>,2012-14-03这样数据去format,如果让setLenient(true).那么它就会自动解析为<strong>2012-03-02</strong>和2013-02-03这样的日期.如果改为setLenient(false)就会让这样出现解析异常,因为去掉了计算,而这样的数据又是不合法的，所以出现异常也是合理的.</li>
+</ul>
+<h2 id="HTTP请求的状态码"><a href="#HTTP请求的状态码" class="headerlink" title="HTTP请求的状态码"></a>HTTP请求的状态码</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）成功Successful2xx：此类状态码标识客户端的请求被成功接收、理解并接受。常见如<span class="number">200</span>（OK）、<span class="number">204</span>（NoContent）。</span><br><span class="line">（<span class="number">2</span>）重定向Redirection3xx：这个类别的状态码标识用户代理要做出进一步的动作来完成请求。常见如<span class="number">301</span>（MovedPermanently）、<span class="number">302</span>（MovedTemprarily）。</span><br><span class="line">（<span class="number">3</span>）客户端错误Client Error <span class="number">4</span>xx：<span class="number">4</span>xx类别的状态码是当客户端象是出错的时使用的。常见如<span class="number">400</span>（BadRequest）、<span class="number">401</span>（Unauthorized）、<span class="number">403</span>（Forbidden）、<span class="number">404</span>（NotFound)。</span><br><span class="line">（<span class="number">4</span>）服务器错误Server Error <span class="number">5</span>xx：响应状态码以<span class="number">5</span>开头表示服务器知道自己出错或者没有能力执行请求。常见如<span class="number">500</span>（InternalServer Error）、<span class="number">502</span>（BadGateway）、<span class="number">504</span>（GatewayTimeout）。</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/12/java随记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-springmvc-mybatis-shiro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/11/spring-springmvc-mybatis-shiro/">spring+springmvc+mybatis+shiro</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/11/spring-springmvc-mybatis-shiro/" class="archive-article-date">
+  	<time datetime="2019-07-11T01:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="web配置文件"><a href="#web配置文件" class="headerlink" title="web配置文件"></a>web配置文件</h2><ul>
+<li><p>spring监听器(与tomcat服务器一起加载)：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;listener&gt;</span><br><span class="line">	&lt;listener-class&gt;</span><br><span class="line">    	org<span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.context</span><span class="selector-class">.ContextLoaderListener</span></span><br><span class="line">    &lt;/listener-class&gt;</span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>spring配置路径</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;context-param&gt;</span></span><br><span class="line">	<span class="params">&lt;param-name&gt;</span>contextConfigLocation<span class="params">&lt;/param-name&gt;</span></span><br><span class="line">    <span class="params">&lt;param-value&gt;</span></span><br><span class="line"><span class="symbol">    	classpath:</span>applicationContext.xml</span><br><span class="line"><span class="symbol">        classpath:</span>applicationContext-shiro.xml</span><br><span class="line">    <span class="params">&lt;/param-value&gt;</span></span><br><span class="line"> <span class="params">&lt;/context-param&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>springmvc核心：分发servlet</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc-dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        	org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">        <span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- spring mvc的配置文件 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMVC.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc-dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shiro配置：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">filter</span>&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-name&gt;shiroFilter&lt;/<span class="built_in">filter</span>-name&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-class&gt;</span><br><span class="line">        	org.springframework.web.<span class="built_in">filter</span>.DelegatingFilterProxy</span><br><span class="line">        &lt;/<span class="built_in">filter</span>-class&gt;</span><br><span class="line">		&lt;init-<span class="built_in">param</span>&gt;</span><br><span class="line">			&lt;<span class="built_in">param</span>-name&gt;targetFilterLifecycle&lt;/<span class="built_in">param</span>-name&gt;</span><br><span class="line">			&lt;<span class="built_in">param</span>-<span class="built_in">value</span>&gt;<span class="literal">true</span>&lt;/<span class="built_in">param</span>-<span class="built_in">value</span>&gt;</span><br><span class="line">		&lt;/init-<span class="built_in">param</span>&gt;</span><br><span class="line">	&lt;/<span class="built_in">filter</span>&gt;</span><br><span class="line">	&lt;<span class="built_in">filter</span>-mapping&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-name&gt;shiroFilter&lt;/<span class="built_in">filter</span>-name&gt;</span><br><span class="line">		&lt;url-pattern&gt;<span class="comment">/*&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="comment">	&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="spring核心配置文件："><a href="#spring核心配置文件：" class="headerlink" title="spring核心配置文件："></a>spring核心配置文件：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.service"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/shiro?characterEncoding=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">     </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"typeAliasesPackage"</span> <span class="attr">value</span>=<span class="string">"com.how2java.pojo"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> 											<span class="attr">value</span>=<span class="string">"classpath:com/how2java/mapper/*.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"com.how2java.mapper"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="shiro配置："><a href="#shiro配置：" class="headerlink" title="shiro配置："></a>shiro配置：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"shiroFilter"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.web.ShiroFilterFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 调用我们配置的权限管理器 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"securityManager"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置我们的登录请求地址 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"loginUrl"</span> <span class="attr">value</span>=<span class="string">"/login"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 如果您请求的资源不再您的权限范围，则跳转到/403请求地址 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"unauthorizedUrl"</span> <span class="attr">value</span>=<span class="string">"/unauthorized"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 退出 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filters"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">util:map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"logout"</span> <span class="attr">value-ref</span>=<span class="string">"logoutFilter"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">util:map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 权限配置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filterChainDefinitions"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- anon表示此地址不需要任何权限即可访问 --&gt;</span></span><br><span class="line">                /login=anon</span><br><span class="line">                /index=anon</span><br><span class="line">                /static/**=anon</span><br><span class="line">                /doLogout=logout</span><br><span class="line">                <span class="comment">&lt;!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login --&gt;</span></span><br><span class="line">                /** = authc</span><br><span class="line">            <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 退出过滤器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"logoutFilter"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.filter.authc.LogoutFilter"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"redirectUrl"</span> <span class="attr">value</span>=<span class="string">"/index"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 会话ID生成器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionIdGenerator"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话Cookie模板 关闭浏览器立即失效 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionIdCookie"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.servlet.SimpleCookie"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"sid"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"httpOnly"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxAge"</span> <span class="attr">value</span>=<span class="string">"-1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话DAO --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionDAO"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdGenerator"</span> <span class="attr">ref</span>=<span class="string">"sessionIdGenerator"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话验证调度器，每30分钟执行一次验证 ，设定会话超时及保存 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"sessionValidationScheduler"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"interval"</span> <span class="attr">value</span>=<span class="string">"1800000"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionManager"</span> <span class="attr">ref</span>=<span class="string">"sessionManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话管理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionManager"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.session.mgt.DefaultWebSessionManager"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 全局会话超时时间（单位毫秒），默认30分钟 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"globalSessionTimeout"</span> <span class="attr">value</span>=<span class="string">"1800000"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"deleteInvalidSessions"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionValidationSchedulerEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionValidationScheduler"</span> <span class="attr">ref</span>=<span class="string">"sessionValidationScheduler"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionDAO"</span> <span class="attr">ref</span>=<span class="string">"sessionDAO"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdCookieEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdCookie"</span> <span class="attr">ref</span>=<span class="string">"sessionIdCookie"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 安全管理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"securityManager"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.mgt.DefaultWebSecurityManager"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"realm"</span> <span class="attr">ref</span>=<span class="string">"databaseRealm"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionManager"</span> <span class="attr">ref</span>=<span class="string">"sessionManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.MethodInvokingFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"staticMethod"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">value</span>=<span class="string">"org.apache.shiro.SecurityUtils.setSecurityManager"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"arguments"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"databaseRealm"</span> <span class="attr">class</span>=<span class="string">"com.how2java.realm.DatabaseRealm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!-- 保证实现了Shiro内部lifecycle函数的bean执行 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lifecycleBeanPostProcessor"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.LifecycleBeanPostProcessor"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="springmvc配置："><a href="#springmvc配置：" class="headerlink" title="springmvc配置："></a>springmvc配置：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.controller"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span> /&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"viewClass"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">value</span>=<span class="string">"org.springframework.web.servlet.view.JstlView"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!--启用shiro注解 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">depends-on</span>=<span class="string">"lifecycleBeanPostProcessor"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"proxyTargetClass"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"securityManager"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!-- 控制器异常处理 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionHandlerExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.how2java.exception.DefaultExceptionHandler"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="log4j配置："><a href="#log4j配置：" class="headerlink" title="log4j配置："></a>log4j配置：</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Global logging configuration</span></span><br><span class="line"><span class="attr">log4j.rootLogger</span>=ERROR, stdout</span><br><span class="line"><span class="comment"># MyBatis logging configuration...</span></span><br><span class="line"><span class="attr">log4j.logger.com.how2java</span>=TRACE</span><br><span class="line"><span class="comment"># Console output...</span></span><br><span class="line"><span class="attr">log4j.appender.stdout</span>=org.apache.log4j.ConsoleAppender</span><br><span class="line"><span class="attr">log4j.appender.stdout.layout</span>=org.apache.log4j.PatternLayout</span><br><span class="line"><span class="attr">log4j.appender.stdout.layout.ConversionPattern</span>=%<span class="number">5</span>p [%t] - %m%n</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/11/spring-springmvc-mybatis-shiro/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/04/javaScript/">markdown语法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/04/javaScript/" class="archive-article-date">
+  	<time datetime="2019-07-04T13:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a)<span class="comment">;</span></span><br><span class="line">var a = <span class="number">1</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码首先使用console.log方法，在控制台（console）显示变量a的值。这时变量a还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a<span class="comment">;</span></span><br><span class="line">console.log(a)<span class="comment">;</span></span><br><span class="line"><span class="attribute">a</span> = <span class="number">1</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后的结果是显示undefined，表示变量a已声明，但还未赋值。</p>
+<h3 id="保留的标识符："><a href="#保留的标识符：" class="headerlink" title="保留的标识符："></a>保留的标识符：</h3><p>JavaScript 有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</p>
+<h3 id="数据类型："><a href="#数据类型：" class="headerlink" title="数据类型："></a>数据类型：</h3><ul>
+<li>数值（number）：整数和小数（比如1和3.14）</li>
+<li>字符串（string）：文本（比如Hello World）。</li>
+<li>布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）</li>
+<li>undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值</li>
+<li>null：表示空值，即此处的值为空。</li>
+<li>对象（object）：各种值组成的集合。<h4 id="null与undefined"><a href="#null与undefined" class="headerlink" title="null与undefined"></a>null与undefined</h4></li>
+<li>区别是这样的：null是一个表示“空”的对象，转为数值时为0；undefined是一个表示”此处无定义”的原始值，转为数值时为NaN。</li>
+<li>如果 JavaScript 预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六个值被转为false，其他值都视为true。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="literal">NaN</span></span><br><span class="line"><span class="string">""</span>或<span class="string">''</span>（空字符串）</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>注意，空数组（[]）和空对象（{}）对应的布尔值，都是true。<br>以下两种情况，JavaScript 会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示。</p>
+<p><strong>（1）小数点前的数字多于21位。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1234567890123456789012</span></span><br><span class="line"><span class="comment">// 1.2345678901234568e+21</span></span><br><span class="line"></span><br><span class="line"><span class="number">123456789012345678901</span></span><br><span class="line"><span class="comment">// 123456789012345680000</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（2）小数点后的零多于5个。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 小数点后紧跟5个以上的零，</span></span><br><span class="line"><span class="comment">// 就自动转为科学计数法</span></span><br><span class="line"><span class="number">0.0000003</span> <span class="comment">// 3e-7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 否则，就保持原来的字面形式</span></span><br><span class="line"><span class="number">0.000003</span> <span class="comment">// 0.000003</span></span><br></pre></td></tr></table></figure>
+
+<p>对于那些会自动转为科学计数法的数字，<code>parseInt</code>会将科学计数法的表示方法视为字符串，因此导致一些奇怪的结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">1000000000000000000000.5</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1e+21'</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000008</span>) <span class="comment">// 8</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'8e-7'</span>) <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="isNaN方法可以用来判断一个值是否为NaN。"><a href="#isNaN方法可以用来判断一个值是否为NaN。" class="headerlink" title="isNaN方法可以用来判断一个值是否为NaN。"></a><code>isNaN</code>方法可以用来判断一个值是否为<code>NaN</code>。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，<code>isNaN</code>只对数值有效，如果传入其他值，会被先转成数值。比如，传入字符串的时候，字符串会被先转成<code>NaN</code>，所以最后返回<code>true</code>，这一点要特别引起注意。也就是说，<code>isNaN</code>为<code>true</code>的值，有可能不是<code>NaN</code>，而是一个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="string">'Hello'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="built_in">Number</span>(<span class="string">'Hello'</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果长字符串必须分成多行，可以在每一行的尾部使用反斜杠。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longString = <span class="string">'Long \</span></span><br><span class="line"><span class="string">long \</span></span><br><span class="line"><span class="string">long \</span></span><br><span class="line"><span class="string">string'</span>;</span><br><span class="line"></span><br><span class="line">longString</span><br><span class="line"><span class="comment">// "Long long long string"</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，加了反斜杠以后，原来写在一行的字符串，可以分成多行书写。但是，输出的时候还是单行，效果与写在同一行完全一样。注意，反斜杠的后面必须是换行符，而不能有其他字符（比如空格），否则会报错。</p>
+<h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>反斜杠（\）在字符串内有特殊含义，用来表示一些特殊字符，所以又称为转义符。</p>
+<p>需要用反斜杠转义的特殊字符，主要有下面这些。</p>
+<ul>
+<li><code>\0</code> ：null（<code>\u0000</code>）</li>
+<li><code>\b</code> ：后退键（<code>\u0008</code>）</li>
+<li><code>\f</code> ：换页符（<code>\u000C</code>）</li>
+<li><code>\n</code> ：换行符（<code>\u000A</code>）</li>
+<li><code>\r</code> ：回车键（<code>\u000D</code>）</li>
+<li><code>\t</code> ：制表符（<code>\u0009</code>）</li>
+<li><code>\v</code> ：垂直制表符（<code>\u000B</code>）</li>
+<li><code>\&#39;</code> ：单引号（<code>\u0027</code>）</li>
+<li><code>\&quot;</code> ：双引号（<code>\u0022</code>）</li>
+<li><code>\\</code> ：反斜杠（<code>\u005C</code>）</li>
+</ul>
+<p>上面这些字符前面加上反斜杠，都表示特殊含义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'1\n2'</span>)</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>\n</code>表示换行，输出的时候就分成了两行。</p>
+<h2 id="Base64-转码"><a href="#Base64-转码" class="headerlink" title="Base64 转码"></a>Base64 转码</h2><p>有时，文本里面包含一些不可打印的符号，比如 ASCII 码0到31的符号都无法打印出来，这时可以使用 Base64 编码，将它们转成可以打印的字符。另一个场景是，有时需要以文本格式传递二进制数据，那么也可以使用 Base64 编码。</p>
+<p>所谓 Base64 就是一种编码方法，可以将任意值转成 0～9、A～Z、a-z、<code>+</code>和<code>/</code>这64个字符组成的可打印字符。使用它的主要目的，不是为了加密，而是为了不出现特殊字符，简化程序的处理。</p>
+<p>JavaScript 原生提供两个 Base64 相关的方法。</p>
+<ul>
+<li><code>btoa()</code>：任意值转为 Base64 编码</li>
+<li><code>atob()</code>：Base64 编码转为原来的值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string = <span class="string">'Hello World!'</span>;</span><br><span class="line">btoa(string) <span class="comment">// "SGVsbG8gV29ybGQh"</span></span><br><span class="line">atob(<span class="string">'SGVsbG8gV29ybGQh'</span>) <span class="comment">// "Hello World!"</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，这两个方法不适合非 ASCII 码的字符，会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btoa(<span class="string">'你好'</span>) <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+
+<p>要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个转码环节，再使用这两个方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Encode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> btoa(<span class="built_in">encodeURIComponent</span>(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Decode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(atob(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b64Encode(<span class="string">'你好'</span>) <span class="comment">// "JUU0JUJEJUEwJUU1JUE1JUJE"</span></span><br><span class="line">b64Decode(<span class="string">'JUU0JUJEJUEwJUU1JUE1JUJE'</span>) <span class="comment">// "你好"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）Function 构造函数</strong></p>
+<p>第三种声明函数的方式是<code>Function</code>构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">'x'</span>,</span><br><span class="line">  <span class="string">'y'</span>,</span><br><span class="line">  <span class="string">'return x + y'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>Function</code>构造函数接受三个参数，除了最后一个参数是<code>add</code>函数的“函数体”，其他参数都是<code>add</code>函数的参数。</p>
+<p>你可以传递任意数量的参数给<code>Function</code>构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">'return "hello world";'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello world'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Function</code>构造函数可以不使用<code>new</code>命令，返回结果完全一样。<br>总的来说，这种声明函数的方式非常不直观，几乎无人使用。</p>
+<blockquote>
+<p><code>Function</code>的length属性的值表示传入的参数的个数</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/04/javaScript/">展开全文 >></a>
         </p>
       
 
@@ -251,9 +624,25 @@
     <article id="post-SpringBoot基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/04/SpringBoot基础/">markdown语法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/04/SpringBoot基础/" class="archive-article-date">
+  	<time datetime="2019-07-04T13:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SpringBoot基础"><a href="#SpringBoot基础" class="headerlink" title="SpringBoot基础"></a>SpringBoot基础</h1><h2 id="学习目标："><a href="#学习目标：" class="headerlink" title="学习目标："></a>学习目标：</h2><ol>
+        <hr>
+<h1 id="SpringBoot基础"><a href="#SpringBoot基础" class="headerlink" title="SpringBoot基础"></a>SpringBoot基础</h1><h2 id="学习目标："><a href="#学习目标：" class="headerlink" title="学习目标："></a>学习目标：</h2><ol>
 <li>能够理解Spring的优缺点</li>
 <li>能够理解SpringBoot的特点</li>
 <li>能够理解SpringBoot的核心功能</li>
@@ -526,11 +915,37 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/spring//" class="article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/24/SpringBoot基础/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/04/SpringBoot基础/">展开全文 >></a>
         </p>
       
 
@@ -560,183 +975,77 @@
 
 
   
-    <article id="post-sql中的日期类型：time，timestamp，date，datetime" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-maven的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/">sql中的日期类型：time，timestamp，date，datetime</a>
+      <a class="article-title" href="/2019/07/04/maven的使用/">markdown语法</a>
     </h1>
   
 
         
-        <a href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/" class="archive-article-date">
-  	<time datetime="2019-07-19T03:35:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
+        <a href="/2019/07/04/maven的使用/" class="archive-article-date">
+  	<time datetime="2019-07-04T13:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DATETIME类型用在你需要同时包含日期和时间信息的值时。MySQL检索并且以’YYYY-MM-DD HH:MM:SS’格式显示DATETIME值，支持的范围是’1000-01-01 00:00:00’到’9999-12-31 23:59:59’。（“支持”意味着尽管更早的值可能工作，但不能保证他们可以。）</p>
-<p>DATE类型用在你仅需要日期值时，没有时间部分。MySQL检索并且以’YYYY-MM-DD’格式显示DATE值，支持的范围是’1000-01-01’到’9999-12-31’。</p>
-<p>TIMESTAMP列类型提供一种类型，你可以使用它自动地用当前的日期和时间标记INSERT或UPDATE的操作。</p>
-<p>TIME数据类型表示一天中的时间。MySQL检索并且以”HH:MM:SS”格式显示TIME值。支持的范围是’00:00:00’到’23:59:59’。</p>
-<p>创建表SQL<br>CREATE TABLE <code>tb_test</code> (<br>  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,<br>  <code>date1</code> timestamp NOT NULL DEFAULT ‘0000-00-00 00:00:00’ ON UPDATE CURRENT_TIM<br>ESTAMP,<br>  <code>date2</code> date DEFAULT NULL,<br>  <code>date3</code> datetime DEFAULT NULL,<br>  <code>time</code> time DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>)<br>);<br>运行效果截图：</p>
-<p>日期类型         存储空间       日期格式                                      日期范围</p>
-<p>datetime         8 bytes   YYYY-MM-DD HH:MM:SS   1000-01-01 00:00:00 ~ 9999-12-31 23:59:59<br>timestamp      4 bytes   YYYY-MM-DD HH:MM:SS   1970-01-01 00:00:01 ~ 2037-12-31 23:59:59<br>date                3 bytes   YYYY-MM-DD                      1000-01-01 ~ 9999-12-31</p>
-<p>datetime和timestamp的区别：<br>1.datetime 的日期范围比较大；如果有1970年以前的数据还是要用datetime.但是timestamp 所占存储空间比较小。<br>2.timestamp 类型的列还有个特性：默认情况下，在 insert, update 数据时，timestamp 列会自动以当前时间（CURRENT_TIMESTAMP）填充/更新。</p>
-<p>3.timestamp比较受时区timezone的影响以及MYSQL版本和服务器的SQL MODE的影响.</p>
-<p>使用一个常用的格式集的任何一个，你可以指定DATETIME、DATE和TIMESTAMP值：<br>‘YYYY-MM-DD HH:MM:SS’或’YY-MM-DD HH:MM:SS’格式的一个字符串,允许一种”宽松”的语法:任何标点可用作在日期部分和时间部分之间的分隔符。例如，’98-12-31 11:30:45’、’98.12.31 11+30+45’、’98/12/31 11<em>30</em>45’和‘98@12@31 11^30^45’是等价的。</p>
-<p><a href="https://blog.csdn.net/shubingzhuoxue/article/details/52606645" target="_blank" rel="noopener">转载于漱冰濯雪</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/19/sql中的日期类型：time，timestamp，date，datetime/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/18/javaScript/">javaScript</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/18/javaScript/" class="archive-article-date">
-  	<time datetime="2019-07-18T06:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a)<span class="comment">;</span></span><br><span class="line">var a = <span class="number">1</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码首先使用console.log方法，在控制台（console）显示变量a的值。这时变量a还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a<span class="comment">;</span></span><br><span class="line">console.log(a)<span class="comment">;</span></span><br><span class="line"><span class="attribute">a</span> = <span class="number">1</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<p>最后的结果是显示undefined，表示变量a已声明，但还未赋值。</p>
-<h3 id="保留的标识符："><a href="#保留的标识符：" class="headerlink" title="保留的标识符："></a>保留的标识符：</h3><p>JavaScript 有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</p>
-<h3 id="数据类型："><a href="#数据类型：" class="headerlink" title="数据类型："></a>数据类型：</h3><ul>
-<li>数值（number）：整数和小数（比如1和3.14）</li>
-<li>字符串（string）：文本（比如Hello World）。</li>
-<li>布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）</li>
-<li>undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值</li>
-<li>null：表示空值，即此处的值为空。</li>
-<li>对象（object）：各种值组成的集合。<h4 id="null与undefined"><a href="#null与undefined" class="headerlink" title="null与undefined"></a>null与undefined</h4></li>
-<li>区别是这样的：null是一个表示“空”的对象，转为数值时为0；undefined是一个表示”此处无定义”的原始值，转为数值时为NaN。</li>
-<li>如果 JavaScript 预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六个值被转为false，其他值都视为true。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="literal">NaN</span></span><br><span class="line"><span class="string">""</span>或<span class="string">''</span>（空字符串）</span><br></pre></td></tr></table></figure>
+        <hr>
+<h4 id="maven中的dependencies与dependencyManagement的区别："><a href="#maven中的dependencies与dependencyManagement的区别：" class="headerlink" title="maven中的dependencies与dependencyManagement的区别："></a>maven中的dependencies与dependencyManagement的区别：</h4><pre><code>由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承；
+在父模块的pom中有dependencies和dependencyManagement两种依赖
+其中在dependencies中的依赖会被子模块继承，
+而dependencyManagement是jar包的声明，在其中定义的jar不会被子模块继承，而是在子模块中可不用声明jar包的版本，会自动的使用父模块中的dependencyManagement的版本号，而子模块如果也声明了版本号，则会用子模块声明的版本号，这样的好处是可以统一所有的子模块的版本号；避免发生版本冲突</code></pre><h4 id="maven的常见仓库："><a href="#maven的常见仓库：" class="headerlink" title="maven的常见仓库："></a>maven的常见仓库：</h4><ul>
+<li>本地仓库:在settings.xml中配置路径，<localrepository>E:\kaifa\mavenware</localrepository></li>
+<li>远程仓库(一般指私服):即公司中的maven仓库服务器。</li>
+<li>中央仓库:maven的管理者的仓库：<a href="http://repo1.maven.org/maven2/" target="_blank" rel="noopener">中央仓库地址</a><br><a href="https://mvnrepository.com/" target="_blank" rel="noopener">常用的查找pom依赖的地址</a></li>
+<li>一般可以配置maven的中央仓库为阿里的库，国内访问比较快.<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<p>注意，空数组（[]）和空对象（{}）对应的布尔值，都是true。<br>以下两种情况，JavaScript 会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示。</p>
-<p><strong>（1）小数点前的数字多于21位。</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1234567890123456789012</span></span><br><span class="line"><span class="comment">// 1.2345678901234568e+21</span></span><br><span class="line"></span><br><span class="line"><span class="number">123456789012345678901</span></span><br><span class="line"><span class="comment">// 123456789012345680000</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（2）小数点后的零多于5个。</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 小数点后紧跟5个以上的零，</span></span><br><span class="line"><span class="comment">// 就自动转为科学计数法</span></span><br><span class="line"><span class="number">0.0000003</span> <span class="comment">// 3e-7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 否则，就保持原来的字面形式</span></span><br><span class="line"><span class="number">0.000003</span> <span class="comment">// 0.000003</span></span><br></pre></td></tr></table></figure>
-
-<p>对于那些会自动转为科学计数法的数字，<code>parseInt</code>会将科学计数法的表示方法视为字符串，因此导致一些奇怪的结果。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">1000000000000000000000.5</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1e+21'</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000008</span>) <span class="comment">// 8</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'8e-7'</span>) <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="isNaN方法可以用来判断一个值是否为NaN。"><a href="#isNaN方法可以用来判断一个值是否为NaN。" class="headerlink" title="isNaN方法可以用来判断一个值是否为NaN。"></a><code>isNaN</code>方法可以用来判断一个值是否为<code>NaN</code>。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="number">123</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>但是，<code>isNaN</code>只对数值有效，如果传入其他值，会被先转成数值。比如，传入字符串的时候，字符串会被先转成<code>NaN</code>，所以最后返回<code>true</code>，这一点要特别引起注意。也就是说，<code>isNaN</code>为<code>true</code>的值，有可能不是<code>NaN</code>，而是一个字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="string">'Hello'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="built_in">Number</span>(<span class="string">'Hello'</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>如果长字符串必须分成多行，可以在每一行的尾部使用反斜杠。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> longString = <span class="string">'Long \</span></span><br><span class="line"><span class="string">long \</span></span><br><span class="line"><span class="string">long \</span></span><br><span class="line"><span class="string">string'</span>;</span><br><span class="line"></span><br><span class="line">longString</span><br><span class="line"><span class="comment">// "Long long long string"</span></span><br></pre></td></tr></table></figure>
-
-<p>上面代码表示，加了反斜杠以后，原来写在一行的字符串，可以分成多行书写。但是，输出的时候还是单行，效果与写在同一行完全一样。注意，反斜杠的后面必须是换行符，而不能有其他字符（比如空格），否则会报错。</p>
-<h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><p>反斜杠（\）在字符串内有特殊含义，用来表示一些特殊字符，所以又称为转义符。</p>
-<p>需要用反斜杠转义的特殊字符，主要有下面这些。</p>
-<ul>
-<li><code>\0</code> ：null（<code>\u0000</code>）</li>
-<li><code>\b</code> ：后退键（<code>\u0008</code>）</li>
-<li><code>\f</code> ：换页符（<code>\u000C</code>）</li>
-<li><code>\n</code> ：换行符（<code>\u000A</code>）</li>
-<li><code>\r</code> ：回车键（<code>\u000D</code>）</li>
-<li><code>\t</code> ：制表符（<code>\u0009</code>）</li>
-<li><code>\v</code> ：垂直制表符（<code>\u000B</code>）</li>
-<li><code>\&#39;</code> ：单引号（<code>\u0027</code>）</li>
-<li><code>\&quot;</code> ：双引号（<code>\u0022</code>）</li>
-<li><code>\\</code> ：反斜杠（<code>\u005C</code>）</li>
+<h4 id="maven常见的命令"><a href="#maven常见的命令" class="headerlink" title="maven常见的命令"></a>maven常见的命令</h4><ul>
+<li>clean 清空项目的target目录，删除之前的maven生成文件</li>
+<li>validate 验证项目是否正确和所有需要的相关资源是否可用</li>
+<li>compile 编译源代码</li>
+<li>test 执行测试单元</li>
+<li>paceage 打包项目，根据pom中的设置的package类型进行打包，一般分为jar，war等</li>
+<li>varify 运行检查</li>
+<li>install 将包安装到Maven本地仓库，供本地其他Maven项目使用</li>
+<li>deploy 将最终的包复制到远程仓库(私服)，供其他开发人员和Maven项目使用<h4 id="maven生命周期"><a href="#maven生命周期" class="headerlink" title="maven生命周期"></a>maven生命周期</h4>Maven的生命周期是对所有的构建过程进行抽象和统一。Maven的生命周期是抽象的，这意味着生命周期本身不做任何实际的工作，生命周期只是定义了一系列的阶段，并确定这些阶段的执行顺序。而在执行这些阶段时，实际的工作还是由插件来完成的。而且这些阶段是有顺序的，并且后面的阶段依赖于前面的阶段，用户和Maven最直接的交互方式就是调用这些生命周期阶段。<br>Maven拥有三套相互独立的生命周期，它们分别为clean，default和site。</li>
 </ul>
-<p>上面这些字符前面加上反斜杠，都表示特殊含义。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'1\n2'</span>)</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>Clean Lifecycle在进行真正的构建之前进行一些清理工作。<br>Default Lifecycle构建的核心部分，编译，测试，打包，部署等等。<br>Site Lifecycle生成项目报告，站点，发布站点。<br>clean生命周期<br>clean生命周期的目的是清理项目，它包含三个阶段：<br>1）pre-clean 执行一些清理前需要完成的工作。<br>2）clean 清理上一次构建生成的文件。<br>3）post-clean 执行一些清理后需要完成的工作。<br>default生命周期<br>default生命周期定义了真正构件时所需要执行的所有步骤，它是生命周期中最核心的部分，它包含的阶段如下：<br>1） validate 验证项目是否正确和所有需要的相关资源是否可用<br>2） initialize 初始化构建<br>3） generate-sources<br>4) process-sources 处理源代码<br>5） generate-resources<br>6) process-resources 处理项目主资源文件。对src/main/resources目录的内容进行变量替换等工作后，复制到项目输出的主classpath目录中。<br>7） compile 编译项目的主源代码<br>8） process-classes<br>9) generate-test-sources<br>10) process-test-sources 处理项目测试资源文件<br>11）generate-test-resources<br>12) process-test-resources 处理测试的资源文件<br>13）test-compile 编译项目的测试代码<br>14）process-test-classes<br>15) test 使用单元测试框架运行测试，测试代码不会被打包或部署<br>16）prepare-package 做好打包的准备<br>17）package 接受编译好的代码，打包成可发布的格式<br>18) pre-integration-test<br>19) integration-test<br>20) postintegration-test<br>21) verify<br>22) install 将包安装到Maven本地仓库，供本地其他Maven项目使用<br>23）deploy 将最终的包复制到远程仓库，供其他开发人员和Maven项目使用<br>site生命周期<br>site生命周期的目的是建立和发布项目站点，Maven能够基于POM所包含的信息，自动生成一个友好的站点，方便团队交流和发布项目信息。该生命周期包含如下阶段：<br>1）pre-site 执行一些在生成项目站点之前需要完成的工作<br>2）site 生成项目站点文档<br>3）post-site 执行一些在生成项目站点之后需要完成的工作<br>4）site-deploy 将生成的项目站点发布到服务器上</p>
+<p>用户在mvn命令后可以指定三个生命周期中的任何阶段，则Maven会按以下逻辑执行：首先会得到该阶段所属生命周期，从该生命周期中的第一个阶段开始按顺序执行，直至该阶段本身。例如执行mvnclean命令会依次执行clean生命周期中的pre-clean阶段及clean阶段。mvn命令后可以指定多个阶段，Maven会按照输入的顺序依次执行，每次执行都会按照之前描述的逻辑执行。<br>注意：上面mvn package这个命令有个问题，执行mvn package的时候会走测试。之前在打包一个springboot项目的时候报数据库连接异常，项目打包之前把数据库配置改为生产环境的数据库配置，mvn package会去执行项目中的测试过程。由于数据库配置是生产环境的，所以连接的时候肯定报错，导致 build 失败。这时候用maven命令在package的时候跳过测试就行了。具体命令如下mvn clean package -Dmaven.test.skip=true ，这样就可以正常打包了。</p>
+<h4 id="maven的依赖规则"><a href="#maven的依赖规则" class="headerlink" title="maven的依赖规则"></a>maven的依赖规则</h4><ul>
+<li>1、第一声明者优先原则:在 pom 文件定义依赖，先声明的依赖为准。</li>
+<li>2、路径近者优先原则:在pom中直接定义的依赖要比传递过来的依赖优先级要高。<br> 当发生依赖冲突的时候，可以排除冲突的依赖： <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">其中的***为jar包的坐标地址</span><br></pre></td></tr></table></figure>
 
-<p>上面代码中，<code>\n</code>表示换行，输出的时候就分成了两行。</p>
-<h2 id="Base64-转码"><a href="#Base64-转码" class="headerlink" title="Base64 转码"></a>Base64 转码</h2><p>有时，文本里面包含一些不可打印的符号，比如 ASCII 码0到31的符号都无法打印出来，这时可以使用 Base64 编码，将它们转成可以打印的字符。另一个场景是，有时需要以文本格式传递二进制数据，那么也可以使用 Base64 编码。</p>
-<p>所谓 Base64 就是一种编码方法，可以将任意值转成 0～9、A～Z、a-z、<code>+</code>和<code>/</code>这64个字符组成的可打印字符。使用它的主要目的，不是为了加密，而是为了不出现特殊字符，简化程序的处理。</p>
-<p>JavaScript 原生提供两个 Base64 相关的方法。</p>
-<ul>
-<li><code>btoa()</code>：任意值转为 Base64 编码</li>
-<li><code>atob()</code>：Base64 编码转为原来的值</li>
+</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string = <span class="string">'Hello World!'</span>;</span><br><span class="line">btoa(string) <span class="comment">// "SGVsbG8gV29ybGQh"</span></span><br><span class="line">atob(<span class="string">'SGVsbG8gV29ybGQh'</span>) <span class="comment">// "Hello World!"</span></span><br></pre></td></tr></table></figure>
+<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png" alt="传递规则" title="传递规则"></p>
+<h4 id="maven私服"><a href="#maven私服" class="headerlink" title="maven私服"></a>maven私服</h4><p>安装nexus </p>
+<ul>
+<li><p>进入到nexus的安装目录，打开终端cmd，执行<code>nexus.bat install</code>，然后<code>nexus.bat start</code> 查看windows的服务里面看nexus服务启动，可在<a href="http://localhost:8081" target="_blank" rel="noopener">localhost:8081</a>查看服务的启动，默认的账户名为<code>admin</code> 密码为<code>admin123</code><br>将项目发布到私服前要将配置maven的配置文件：</p>
+</li>
+<li><p>配置服务版本的密码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到正式版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到测试版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到第三方版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置服务的路径：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span> </span><br><span class="line">		<span class="comment">&lt;!--profile的id --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">repository</span>&gt;</span> <span class="comment">&lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span> <span class="comment">&lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span> <span class="comment">&lt;!--是否下载releases构件 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">releases</span>&gt;</span> <span class="comment">&lt;!--是否下载snapshots构件 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span> <span class="comment">&lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span> <span class="comment">&lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span>&gt;</span>public<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">name</span>&gt;</span>Public Repositories<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8081/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 profile 定义仓库需要激活才可生效。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>注意，这两个方法不适合非 ASCII 码的字符，会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btoa(<span class="string">'你好'</span>) <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
-
-<p>要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个转码环节，再使用这两个方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Encode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> btoa(<span class="built_in">encodeURIComponent</span>(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b64Decode</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(atob(str));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b64Encode(<span class="string">'你好'</span>) <span class="comment">// "JUU0JUJEJUEwJUU1JUE1JUJE"</span></span><br><span class="line">b64Decode(<span class="string">'JUU0JUJEJUEwJUU1JUE1JUJE'</span>) <span class="comment">// "你好"</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>（3）Function 构造函数</strong></p>
-<p>第三种声明函数的方式是<code>Function</code>构造函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">'x'</span>,</span><br><span class="line">  <span class="string">'y'</span>,</span><br><span class="line">  <span class="string">'return x + y'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>Function</code>构造函数接受三个参数，除了最后一个参数是<code>add</code>函数的“函数体”，其他参数都是<code>add</code>函数的参数。</p>
-<p>你可以传递任意数量的参数给<code>Function</code>构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">'return "hello world";'</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'hello world'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>Function</code>构造函数可以不使用<code>new</code>命令，返回结果完全一样。<br>总的来说，这种声明函数的方式非常不直观，几乎无人使用。</p>
-<blockquote>
-<p><code>Function</code>的length属性的值表示传入的参数的个数</p>
-</blockquote>
+</li>
+</ul>
+<p>执行mvn deploy根据项目的pom文件的版本发布到不同版本库，</p>
+<h4 id="安装jar包到仓库："><a href="#安装jar包到仓库：" class="headerlink" title="安装jar包到仓库："></a>安装jar包到仓库：</h4><p>–安装第三方jar包到本地仓库</p>
+<p>—-进入jar包所在目录运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dfile=fastjson-1.1.37.jar -Dpackaging=jar<br>—-打开cmd直接运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar</p>
+<p>–安装第三方jar包到私服</p>
+<p>–在settings配置文件中添加登录私服第三方登录信息<br><server><br><id>thirdparty</id><br><username>admin</username><br><password>admin123</password><br></server><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
 
       
 
@@ -750,7 +1059,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -762,7 +1071,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/javascript//" class="article-tag-list-link color1">javascript</a>
+        			<a href="/categories/maven//" class="article-tag-list-link color1">maven</a>
         		</li>
       		
 		</ul>
@@ -771,7 +1080,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/18/javaScript/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/04/maven的使用/">展开全文 >></a>
         </p>
       
 
@@ -801,247 +1110,19 @@
 
 
   
-    <article id="post-UTF-8编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/16/UTF-8编码/">UTF-8编码</a>
+      <a class="article-title" href="/2019/07/04/markdown语法/">markdown语法</a>
     </h1>
   
 
         
-        <a href="/2019/07/16/UTF-8编码/" class="archive-article-date">
-  	<time datetime="2019-07-16T03:33:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度,他是Unicode的一种实现。</li>
-</ul>
-<p>UTF-8 的编码规则很简单，只有二条：</p>
-<ol>
-<li><p>对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
-</li>
-<li><p>对于n字节的符号（n &gt; 1），第一个字节的前n位都设为1，第n + 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
-</li>
-</ol>
-<p>下表总结了编码规则，字母x表示可用编码的位。</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Unicode符号范围     |        UTF<span class="number">-8</span>编码方式</span><br><span class="line">(十六进制)        |              （二进制）</span><br><span class="line">----------------------+---------------------------------------------</span><br><span class="line"><span class="number">0000</span> <span class="number">0000</span><span class="number">-0000</span> <span class="number">007</span>F | <span class="number">0</span>xxxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0080</span><span class="number">-0000</span> <span class="number">07</span>FF | <span class="number">110</span>xxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0800</span><span class="number">-0000</span> FFFF | <span class="number">1110</span>xxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br><span class="line"><span class="number">0001</span> <span class="number">0000</span><span class="number">-0010</span> FFFF | <span class="number">11110</span>xxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx</span><br></pre></td></tr></table></figure>
-
-<p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是0，则这个字节单独就是一个字符；如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。</p>
-<p>下面，还是以汉字严为例，演示如何实现 UTF-8 编码。</p>
-<p>严的 Unicode 是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800 - 0000 FFFF），因此严的 UTF-8 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，严的 UTF-8 编码是11100100 10111000 10100101，转换成十六进制就是E4B8A5。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/16/UTF-8编码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java随记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/12/java随记/">java随记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/12/java随记/" class="archive-article-date">
-  	<time datetime="2019-07-12T02:05:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="DateFormat的setlenient（true-false）"><a href="#DateFormat的setlenient（true-false）" class="headerlink" title="DateFormat的setlenient（true/false）"></a>DateFormat的setlenient（true/false）</h3><ul>
-<li>算出能有合法的值,就以计算后的值为真正的值.比如说当你使用的时候有<strong>2012-02-31</strong>,2012-14-03这样数据去format,如果让setLenient(true).那么它就会自动解析为<strong>2012-03-02</strong>和2013-02-03这样的日期.如果改为setLenient(false)就会让这样出现解析异常,因为去掉了计算,而这样的数据又是不合法的，所以出现异常也是合理的.</li>
-</ul>
-<h2 id="HTTP请求的状态码"><a href="#HTTP请求的状态码" class="headerlink" title="HTTP请求的状态码"></a>HTTP请求的状态码</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（<span class="number">1</span>）成功Successful2xx：此类状态码标识客户端的请求被成功接收、理解并接受。常见如<span class="number">200</span>（OK）、<span class="number">204</span>（NoContent）。</span><br><span class="line">（<span class="number">2</span>）重定向Redirection3xx：这个类别的状态码标识用户代理要做出进一步的动作来完成请求。常见如<span class="number">301</span>（MovedPermanently）、<span class="number">302</span>（MovedTemprarily）。</span><br><span class="line">（<span class="number">3</span>）客户端错误Client Error <span class="number">4</span>xx：<span class="number">4</span>xx类别的状态码是当客户端象是出错的时使用的。常见如<span class="number">400</span>（BadRequest）、<span class="number">401</span>（Unauthorized）、<span class="number">403</span>（Forbidden）、<span class="number">404</span>（NotFound)。</span><br><span class="line">（<span class="number">4</span>）服务器错误Server Error <span class="number">5</span>xx：响应状态码以<span class="number">5</span>开头表示服务器知道自己出错或者没有能力执行请求。常见如<span class="number">500</span>（InternalServer Error）、<span class="number">502</span>（BadGateway）、<span class="number">504</span>（GatewayTimeout）。</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/12/java随记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring-springmvc-mybatis-shiro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/spring-springmvc-mybatis-shiro/">spring+springmvc+mybatis+shiro</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/11/spring-springmvc-mybatis-shiro/" class="archive-article-date">
-  	<time datetime="2019-07-11T01:38:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="web配置文件"><a href="#web配置文件" class="headerlink" title="web配置文件"></a>web配置文件</h2><ul>
-<li><p>spring监听器(与tomcat服务器一起加载)：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;listener&gt;</span><br><span class="line">	&lt;listener-class&gt;</span><br><span class="line">    	org<span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.context</span><span class="selector-class">.ContextLoaderListener</span></span><br><span class="line">    &lt;/listener-class&gt;</span><br><span class="line">&lt;/listener&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>spring配置路径</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;context-param&gt;</span></span><br><span class="line">	<span class="params">&lt;param-name&gt;</span>contextConfigLocation<span class="params">&lt;/param-name&gt;</span></span><br><span class="line">    <span class="params">&lt;param-value&gt;</span></span><br><span class="line"><span class="symbol">    	classpath:</span>applicationContext.xml</span><br><span class="line"><span class="symbol">        classpath:</span>applicationContext-shiro.xml</span><br><span class="line">    <span class="params">&lt;/param-value&gt;</span></span><br><span class="line"> <span class="params">&lt;/context-param&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>springmvc核心：分发servlet</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc-dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        	org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">        <span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- spring mvc的配置文件 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMVC.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>mvc-dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>shiro配置：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">filter</span>&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-name&gt;shiroFilter&lt;/<span class="built_in">filter</span>-name&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-class&gt;</span><br><span class="line">        	org.springframework.web.<span class="built_in">filter</span>.DelegatingFilterProxy</span><br><span class="line">        &lt;/<span class="built_in">filter</span>-class&gt;</span><br><span class="line">		&lt;init-<span class="built_in">param</span>&gt;</span><br><span class="line">			&lt;<span class="built_in">param</span>-name&gt;targetFilterLifecycle&lt;/<span class="built_in">param</span>-name&gt;</span><br><span class="line">			&lt;<span class="built_in">param</span>-<span class="built_in">value</span>&gt;<span class="literal">true</span>&lt;/<span class="built_in">param</span>-<span class="built_in">value</span>&gt;</span><br><span class="line">		&lt;/init-<span class="built_in">param</span>&gt;</span><br><span class="line">	&lt;/<span class="built_in">filter</span>&gt;</span><br><span class="line">	&lt;<span class="built_in">filter</span>-mapping&gt;</span><br><span class="line">		&lt;<span class="built_in">filter</span>-name&gt;shiroFilter&lt;/<span class="built_in">filter</span>-name&gt;</span><br><span class="line">		&lt;url-pattern&gt;<span class="comment">/*&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="comment">	&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="spring核心配置文件："><a href="#spring核心配置文件：" class="headerlink" title="spring核心配置文件："></a>spring核心配置文件：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.service"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/shiro?characterEncoding=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">     </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">value</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"typeAliasesPackage"</span> <span class="attr">value</span>=<span class="string">"com.how2java.pojo"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> 											<span class="attr">value</span>=<span class="string">"classpath:com/how2java/mapper/*.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"com.how2java.mapper"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="shiro配置："><a href="#shiro配置：" class="headerlink" title="shiro配置："></a>shiro配置：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置shiro的过滤器工厂类，id- shiroFilter要和我们在web.xml中配置的过滤器一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"shiroFilter"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.web.ShiroFilterFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 调用我们配置的权限管理器 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"securityManager"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 配置我们的登录请求地址 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"loginUrl"</span> <span class="attr">value</span>=<span class="string">"/login"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 如果您请求的资源不再您的权限范围，则跳转到/403请求地址 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"unauthorizedUrl"</span> <span class="attr">value</span>=<span class="string">"/unauthorized"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 退出 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filters"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">util:map</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"logout"</span> <span class="attr">value-ref</span>=<span class="string">"logoutFilter"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">util:map</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 权限配置 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filterChainDefinitions"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- anon表示此地址不需要任何权限即可访问 --&gt;</span></span><br><span class="line">                /login=anon</span><br><span class="line">                /index=anon</span><br><span class="line">                /static/**=anon</span><br><span class="line">                /doLogout=logout</span><br><span class="line">                <span class="comment">&lt;!--所有的请求(除去配置的静态资源请求或请求地址为anon的请求)都要通过登录验证,如果未登录则跳到/login --&gt;</span></span><br><span class="line">                /** = authc</span><br><span class="line">            <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 退出过滤器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"logoutFilter"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.filter.authc.LogoutFilter"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"redirectUrl"</span> <span class="attr">value</span>=<span class="string">"/index"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 会话ID生成器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionIdGenerator"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话Cookie模板 关闭浏览器立即失效 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionIdCookie"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.servlet.SimpleCookie"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"sid"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"httpOnly"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxAge"</span> <span class="attr">value</span>=<span class="string">"-1"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话DAO --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionDAO"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdGenerator"</span> <span class="attr">ref</span>=<span class="string">"sessionIdGenerator"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话验证调度器，每30分钟执行一次验证 ，设定会话超时及保存 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"sessionValidationScheduler"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"interval"</span> <span class="attr">value</span>=<span class="string">"1800000"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionManager"</span> <span class="attr">ref</span>=<span class="string">"sessionManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会话管理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionManager"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.session.mgt.DefaultWebSessionManager"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 全局会话超时时间（单位毫秒），默认30分钟 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"globalSessionTimeout"</span> <span class="attr">value</span>=<span class="string">"1800000"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"deleteInvalidSessions"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionValidationSchedulerEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionValidationScheduler"</span> <span class="attr">ref</span>=<span class="string">"sessionValidationScheduler"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionDAO"</span> <span class="attr">ref</span>=<span class="string">"sessionDAO"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdCookieEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionIdCookie"</span> <span class="attr">ref</span>=<span class="string">"sessionIdCookie"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">&lt;!-- 安全管理器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"securityManager"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.web.mgt.DefaultWebSecurityManager"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"realm"</span> <span class="attr">ref</span>=<span class="string">"databaseRealm"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionManager"</span> <span class="attr">ref</span>=<span class="string">"sessionManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.MethodInvokingFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"staticMethod"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">value</span>=<span class="string">"org.apache.shiro.SecurityUtils.setSecurityManager"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"arguments"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"databaseRealm"</span> <span class="attr">class</span>=<span class="string">"com.how2java.realm.DatabaseRealm"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!-- 保证实现了Shiro内部lifecycle函数的bean执行 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"lifecycleBeanPostProcessor"</span> <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.LifecycleBeanPostProcessor"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="springmvc配置："><a href="#springmvc配置：" class="headerlink" title="springmvc配置："></a>springmvc配置：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.controller"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span> /&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"viewClass"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">value</span>=<span class="string">"org.springframework.web.servlet.view.JstlView"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!--启用shiro注解 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">depends-on</span>=<span class="string">"lifecycleBeanPostProcessor"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"proxyTargetClass"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"securityManager"</span> <span class="attr">ref</span>=<span class="string">"securityManager"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!-- 控制器异常处理 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"exceptionHandlerExceptionResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.how2java.exception.DefaultExceptionHandler"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="log4j配置："><a href="#log4j配置：" class="headerlink" title="log4j配置："></a>log4j配置：</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Global logging configuration</span></span><br><span class="line"><span class="attr">log4j.rootLogger</span>=ERROR, stdout</span><br><span class="line"><span class="comment"># MyBatis logging configuration...</span></span><br><span class="line"><span class="attr">log4j.logger.com.how2java</span>=TRACE</span><br><span class="line"><span class="comment"># Console output...</span></span><br><span class="line"><span class="attr">log4j.appender.stdout</span>=org.apache.log4j.ConsoleAppender</span><br><span class="line"><span class="attr">log4j.appender.stdout.layout</span>=org.apache.log4j.PatternLayout</span><br><span class="line"><span class="attr">log4j.appender.stdout.layout.ConversionPattern</span>=%<span class="number">5</span>p [%t] - %m%n</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/11/spring-springmvc-mybatis-shiro/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-first-page" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/first-page/">markdown语法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/04/first-page/" class="archive-article-date">
+        <a href="/2019/07/04/markdown语法/" class="archive-article-date">
   	<time datetime="2019-07-04T13:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
         
@@ -1118,7 +1199,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/04/first-page/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/04/markdown语法/">展开全文 >></a>
         </p>
       
 
@@ -1250,6 +1331,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
             
             <div class="clearfix"></div>
