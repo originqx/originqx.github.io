@@ -96,20 +96,17 @@
 
 
 
-  <meta name="description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
-<meta name="keywords" content="java,markdown">
+  <meta name="description" content="动态代理1，基于接口的*  特点：字节码随用随创建，随用随加载 *  作用：不修改源码的基础上对方法增强 *  分类： *      基于接口的动态代理 *      基于子类的动态代理 *  基于接口的动态代理： *      涉及的类：Proxy *      提供者：JDK官方 *  如何创建代理对象： *      使用Proxy类中的newProxyInstance方法 *  创建代理对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown语法">
-<meta property="og:url" content="http://www.originqx.top/2019/07/04/markdown语法/index.html">
+<meta property="og:title" content="spring动态代理">
+<meta property="og:url" content="http://www.originqx.top/2019/07/28/spring动态代理/index.html">
 <meta property="og:site_name" content="originqxの博客">
-<meta property="og:description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
+<meta property="og:description" content="动态代理1，基于接口的*  特点：字节码随用随创建，随用随加载 *  作用：不修改源码的基础上对方法增强 *  分类： *      基于接口的动态代理 *      基于子类的动态代理 *  基于接口的动态代理： *      涉及的类：Proxy *      提供者：JDK官方 *  如何创建代理对象： *      使用Proxy类中的newProxyInstance方法 *  创建代理对">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.originqx.top/images/avatar.gif">
-<meta property="og:updated_time" content="2019-07-26T01:55:56.939Z">
+<meta property="og:updated_time" content="2019-07-28T06:21:37.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="markdown语法">
-<meta name="twitter:description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
-<meta name="twitter:image" content="http://www.originqx.top/images/avatar.gif">
+<meta name="twitter:title" content="spring动态代理">
+<meta name="twitter:description" content="动态代理1，基于接口的*  特点：字节码随用随创建，随用随加载 *  作用：不修改源码的基础上对方法增强 *  分类： *      基于接口的动态代理 *      基于子类的动态代理 *  基于接口的动态代理： *      涉及的类：Proxy *      提供者：JDK官方 *  如何创建代理对象： *      使用Proxy类中的newProxyInstance方法 *  创建代理对">
 
 
 
@@ -119,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://www.originqx.top/2019/07/04/markdown语法/">
+  <link rel="canonical" href="http://www.originqx.top/2019/07/28/spring动态代理/">
 
 
 
@@ -129,7 +126,7 @@
   };
 </script>
 
-  <title>markdown语法 | originqxの博客</title>
+  <title>spring动态代理 | originqxの博客</title>
   
 
 
@@ -354,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.originqx.top/2019/07/04/markdown语法/">
+    <link itemprop="mainEntityOfPage" href="http://www.originqx.top/2019/07/28/spring动态代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="QX">
@@ -371,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">markdown语法
+          <h1 class="post-title" itemprop="name headline">spring动态代理
 
               
             
@@ -398,7 +395,7 @@
                 
               
 
-              <time title="Erstellt: 2019-07-04 21:29:00" itemprop="dateCreated datePublished" datetime="2019-07-04T21:29:00+08:00">2019-07-04</time>
+              <time title="Erstellt: 2019-07-28 14:14:01 / Geändert am: 14:21:37" itemprop="dateCreated datePublished" datetime="2019-07-28T14:14:01+08:00">2019-07-28</time>
             </span>
           
 
@@ -406,33 +403,8 @@
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-07-26 09:55:56" itemprop="dateModified" datetime="2019-07-26T09:55:56+08:00">2019-07-26</time>
-              </span>
-            
           
 
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -462,7 +434,7 @@
               
                 <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
               
-              <span title="Symbole im Artikel gezählt">272</span>
+              <span title="Symbole im Artikel gezählt">3.1k</span>
             </span>
           
 
@@ -483,38 +455,71 @@
       
 
       
-        <hr>
-<h1 id="this-is-my-first-blog-congraturation"><a href="#this-is-my-first-blog-congraturation" class="headerlink" title="this is my first blog,congraturation"></a>this is my first blog,congraturation</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h6 id="最多五级标题"><a href="#最多五级标题" class="headerlink" title="最多五级标题"></a>最多五级标题</h6><h2 id="超链接："><a href="#超链接：" class="headerlink" title="超链接："></a>超链接：</h2><p><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p>
-<h2 id="字体："><a href="#字体：" class="headerlink" title="字体："></a>字体：</h2><p><em>斜体</em> <strong>粗体</strong> <strong><em>粗斜体</em></strong></p>
-<h2 id="图片资源：存放在source-images下"><a href="#图片资源：存放在source-images下" class="headerlink" title="图片资源：存放在source/images下"></a>图片资源：存放在source/images下</h2><p><img src="/images/avatar.gif" alt="图片下标描述" title="图片hint"></p>
-<h2 id="列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"><a href="#列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）" class="headerlink" title="列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"></a>列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）</h2><ul>
-<li>这是一个层级</li>
-</ul>
-<ul>
-<li>这也是</li>
-</ul>
-<ul>
-<li>类似<ul>
-<li>二层级<ul>
-<li>三级</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="有序列表："><a href="#有序列表：" class="headerlink" title="有序列表："></a>有序列表：</h2><ol>
-<li>有空格</li>
-<li>二级<h2 id="分割行：—或-均可（只需大于三个）"><a href="#分割行：—或-均可（只需大于三个）" class="headerlink" title="分割行：—或***均可（只需大于三个）"></a>分割行：—或***均可（只需大于三个）</h2></li>
-</ol>
-<hr>
-<hr>
-<hr>
-<h2 id="引用文字："><a href="#引用文字：" class="headerlink" title="引用文字："></a>引用文字：</h2><blockquote>
-<p>这是一段引用文字<br>可换行，遇上空行隔断</p>
-</blockquote>
-<p>##引用代码<br><code>引用一行可用,
-就算换行也只在一行内，换行算作空格</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">引用多行时可用</span><br><span class="line">均在引用内</span><br></pre></td></tr></table></figure>
+        <h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><h5 id="1，基于接口的"><a href="#1，基于接口的" class="headerlink" title="1，基于接口的"></a>1，基于接口的</h5><pre><code>*  特点：字节码随用随创建，随用随加载
+*  作用：不修改源码的基础上对方法增强
+*  分类：
+*      基于接口的动态代理
+*      基于子类的动态代理
+*  基于接口的动态代理：
+*      涉及的类：Proxy
+*      提供者：JDK官方
+*  如何创建代理对象：
+*      使用Proxy类中的newProxyInstance方法
+*  创建代理对象的要求：
+*      被代理类最少实现一个接口，如果没有则不能使用
+*  newProxyInstance方法的参数：
+*      ClassLoader：类加载器
+*          它是用于加载代理对象字节码的。和被代理对象使用相同的类加载器。固定写法。
+*      Class[]：字节码数组
+*          它是用于让代理对象和被代理对象有相同方法。固定写法。
+*      InvocationHandler：用于提供增强的代码
+*          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。
+*          此接口的实现类都是谁用谁写。</code></pre><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">IProducer proxyProducer = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(),</span><br><span class="line">                producer.getClass().getInterfaces(),</span><br><span class="line">                <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">                    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>作用：执行被代理对象的任何接口方法都会经过该方法</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>方法参数的含义</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>@param proxy   代理对象的引用</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>@param method  当前执行的方法</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>@param args    当前执行方法所需的参数</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>@return        和被代理对象方法有相同的返回值</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">                     * </span>@throws Throwable</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">                     */</span></span></span></span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    public <span class="built_in">Object</span> invoke(<span class="built_in">Object</span> proxy, Method method, <span class="built_in">Object</span>[] args) throws Throwable &#123;</span><br><span class="line">                        <span class="comment">//提供增强的代码</span></span><br><span class="line">                        <span class="built_in">Object</span> returnValue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                        <span class="comment">//1.获取方法执行的参数</span></span><br><span class="line">                        Float money = (Float)args[<span class="number">0</span>];</span><br><span class="line">                        <span class="comment">//2.判断当前方法是不是销售</span></span><br><span class="line">                        <span class="keyword">if</span>(<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                            returnValue = method.invoke(producer, money*<span class="number">0.8</span>f);</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">return</span> returnValue;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2，基于之类的"><a href="#2，基于之类的" class="headerlink" title="2，基于之类的"></a>2，基于之类的</h5><pre><code>*  特点：字节码随用随创建，随用随加载
+*  作用：不修改源码的基础上对方法增强
+*  分类：
+*      基于接口的动态代理
+*      基于子类的动态代理
+*  基于子类的动态代理：
+*      涉及的类：Enhancer
+*      提供者：第三方cglib库
+*  如何创建代理对象：
+*      使用Enhancer类中的create方法
+*  创建代理对象的要求：
+*      被代理类不能是最终类
+*  create方法的参数：
+*      Class：字节码
+*          它是用于指定被代理对象的字节码。
+*
+*      Callback：用于提供增强的代码
+*          它是让我们写如何代理。我们一般都是些一个该接口的实现类，通常情况下都是匿名内部类，但不是必须的。
+*          此接口的实现类都是谁用谁写。
+*          我们一般写的都是该接口的子接口实现类：MethodInterceptor</code></pre><pre><code>Producer cglibProducer = (Producer)Enhancer.create(producer.getClass(), new MethodInterceptor() {
+            /**
+             * 执行北地阿里对象的任何方法都会经过该方法
+             * @param proxy
+             * @param method
+             * @param args
+             *    以上三个参数和基于接口的动态代理中invoke方法的参数是一样的
+             * @param methodProxy ：当前执行方法的代理对象
+             * @return
+             * @throws Throwable
+             */
+            @Override
+            public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+                //提供增强的代码
+                Object returnValue = null;
+
+                //1.获取方法执行的参数
+                Float money = (Float)args[0];
+                //2.判断当前方法是不是销售
+                if(&quot;saleProduct&quot;.equals(method.getName())) {
+                    returnValue = method.invoke(producer, money*0.8f);
+                }
+                return returnValue;
+            }
+        });</code></pre>
       
     </div>
 
@@ -548,7 +553,7 @@
   <li class="post-copyright-link">
     <strong>Beitragslink: </strong>
     
-    <a href="http://www.originqx.top/2019/07/04/markdown语法/" title="markdown语法">http://www.originqx.top/2019/07/04/markdown语法/</a>
+    <a href="http://www.originqx.top/2019/07/28/spring动态代理/" title="spring动态代理">http://www.originqx.top/2019/07/28/spring动态代理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.</li>
@@ -567,17 +572,6 @@
     </div>
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
-          
-        </div>
-      
 
       
       
@@ -587,15 +581,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/27/spring的基础注解/" rel="next" title="spring的基础注解">
+                <i class="fa fa-chevron-left"></i> spring的基础注解
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/11/spring-springmvc-mybatis-shiro/" rel="prev" title="spring+springmvc+mybatis+shiro">
-                spring+springmvc+mybatis+shiro <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -806,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this-is-my-first-blog-congraturation"><span class="nav-number">1.</span> <span class="nav-text">this is my first blog,congraturation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number">2.</span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number">2.1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#最多五级标题"><span class="nav-number">2.1.0.0.0.1.</span> <span class="nav-text">最多五级标题</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接："><span class="nav-number">2.2.</span> <span class="nav-text">超链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体："><span class="nav-number">2.3.</span> <span class="nav-text">字体：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片资源：存放在source-images下"><span class="nav-number">2.4.</span> <span class="nav-text">图片资源：存放在source/images下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"><span class="nav-number">2.5.</span> <span class="nav-text">列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表："><span class="nav-number">2.6.</span> <span class="nav-text">有序列表：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割行：—或-均可（只需大于三个）"><span class="nav-number">2.7.</span> <span class="nav-text">分割行：—或***均可（只需大于三个）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用文字："><span class="nav-number">2.8.</span> <span class="nav-text">引用文字：</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#动态代理"><span class="nav-number">1.</span> <span class="nav-text">动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1，基于接口的"><span class="nav-number">1.1.</span> <span class="nav-text">1，基于接口的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2，基于之类的"><span class="nav-number">1.2.</span> <span class="nav-text">2，基于之类的</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1008,7 +1002,7 @@
 
 <script>
   window.livereOptions = {
-    refer: '2019/07/04/markdown语法/'
+    refer: '2019/07/28/spring动态代理/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

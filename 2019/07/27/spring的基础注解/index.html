@@ -96,20 +96,20 @@
 
 
 
-  <meta name="description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
-<meta name="keywords" content="java,markdown">
+  <meta name="description" content="spring 的体系结构图  spring在类中获取配置文件有两种方式： ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名 FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统      IOC中bean标签和管理对象细节bean 标签作用：用于配置对象让 spring 来创建的。默认情况下它调用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown语法">
-<meta property="og:url" content="http://www.originqx.top/2019/07/04/markdown语法/index.html">
+<meta property="og:title" content="spring的基础注解">
+<meta property="og:url" content="http://www.originqx.top/2019/07/27/spring的基础注解/index.html">
 <meta property="og:site_name" content="originqxの博客">
-<meta property="og:description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
+<meta property="og:description" content="spring 的体系结构图  spring在类中获取配置文件有两种方式： ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名 FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统      IOC中bean标签和管理对象细节bean 标签作用：用于配置对象让 spring 来创建的。默认情况下它调用">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.originqx.top/images/avatar.gif">
-<meta property="og:updated_time" content="2019-07-26T01:55:56.939Z">
+<meta property="og:image" content="http://www.originqx.top/images/spring%E5%AE%B9%E5%99%A8">
+<meta property="og:image" content="http://www.originqx.top/image/%E5%85%A8%E5%B1%80session.png">
+<meta property="og:updated_time" content="2019-07-28T06:12:03.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="markdown语法">
-<meta name="twitter:description" content="this is my first blog,congraturation一级标题二级标题最多五级标题超链接：百度一下 字体：斜体 粗体 粗斜体 图片资源：存放在source/images下 列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开） 这是一个层级   这也是   类似 二层级 三级      有序列表： 有空格 二级分割行：—或***均可（只需大于三个）">
-<meta name="twitter:image" content="http://www.originqx.top/images/avatar.gif">
+<meta name="twitter:title" content="spring的基础注解">
+<meta name="twitter:description" content="spring 的体系结构图  spring在类中获取配置文件有两种方式： ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名 FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统      IOC中bean标签和管理对象细节bean 标签作用：用于配置对象让 spring 来创建的。默认情况下它调用">
+<meta name="twitter:image" content="http://www.originqx.top/images/spring%E5%AE%B9%E5%99%A8">
 
 
 
@@ -119,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://www.originqx.top/2019/07/04/markdown语法/">
+  <link rel="canonical" href="http://www.originqx.top/2019/07/27/spring的基础注解/">
 
 
 
@@ -129,7 +129,7 @@
   };
 </script>
 
-  <title>markdown语法 | originqxの博客</title>
+  <title>spring的基础注解 | originqxの博客</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.originqx.top/2019/07/04/markdown语法/">
+    <link itemprop="mainEntityOfPage" href="http://www.originqx.top/2019/07/27/spring的基础注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="QX">
@@ -371,7 +371,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">markdown语法
+          <h1 class="post-title" itemprop="name headline">spring的基础注解
 
               
             
@@ -398,7 +398,7 @@
                 
               
 
-              <time title="Erstellt: 2019-07-04 21:29:00" itemprop="dateCreated datePublished" datetime="2019-07-04T21:29:00+08:00">2019-07-04</time>
+              <time title="Erstellt: 2019-07-27 10:20:14" itemprop="dateCreated datePublished" datetime="2019-07-27T10:20:14+08:00">2019-07-27</time>
             </span>
           
 
@@ -413,26 +413,11 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-07-26 09:55:56" itemprop="dateModified" datetime="2019-07-26T09:55:56+08:00">2019-07-26</time>
+                <time title="Geändert am: 2019-07-28 14:12:03" itemprop="dateModified" datetime="2019-07-28T14:12:03+08:00">2019-07-28</time>
               </span>
             
           
 
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -462,7 +447,7 @@
               
                 <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
               
-              <span title="Symbole im Artikel gezählt">272</span>
+              <span title="Symbole im Artikel gezählt">4.4k</span>
             </span>
           
 
@@ -483,38 +468,141 @@
       
 
       
-        <hr>
-<h1 id="this-is-my-first-blog-congraturation"><a href="#this-is-my-first-blog-congraturation" class="headerlink" title="this is my first blog,congraturation"></a>this is my first blog,congraturation</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h6 id="最多五级标题"><a href="#最多五级标题" class="headerlink" title="最多五级标题"></a>最多五级标题</h6><h2 id="超链接："><a href="#超链接：" class="headerlink" title="超链接："></a>超链接：</h2><p><a href="http://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p>
-<h2 id="字体："><a href="#字体：" class="headerlink" title="字体："></a>字体：</h2><p><em>斜体</em> <strong>粗体</strong> <strong><em>粗斜体</em></strong></p>
-<h2 id="图片资源：存放在source-images下"><a href="#图片资源：存放在source-images下" class="headerlink" title="图片资源：存放在source/images下"></a>图片资源：存放在source/images下</h2><p><img src="/images/avatar.gif" alt="图片下标描述" title="图片hint"></p>
-<h2 id="列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"><a href="#列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）" class="headerlink" title="列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"></a>列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）</h2><ul>
-<li>这是一个层级</li>
-</ul>
+        <h4 id="spring-的体系结构图"><a href="#spring-的体系结构图" class="headerlink" title="spring 的体系结构图"></a>spring 的体系结构图</h4><p><img src="/images/spring%E5%AE%B9%E5%99%A8" alt="spring容器" title="容器"></p>
 <ul>
-<li>这也是</li>
-</ul>
-<ul>
-<li>类似<ul>
-<li>二层级<ul>
-<li>三级</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="有序列表："><a href="#有序列表：" class="headerlink" title="有序列表："></a>有序列表：</h2><ol>
-<li>有空格</li>
-<li>二级<h2 id="分割行：—或-均可（只需大于三个）"><a href="#分割行：—或-均可（只需大于三个）" class="headerlink" title="分割行：—或***均可（只需大于三个）"></a>分割行：—或***均可（只需大于三个）</h2></li>
+<li>spring在类中获取配置文件有两种方式：<ol>
+<li>ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名<ol start="2">
+<li>FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统</li>
 </ol>
-<hr>
-<hr>
-<hr>
-<h2 id="引用文字："><a href="#引用文字：" class="headerlink" title="引用文字："></a>引用文字：</h2><blockquote>
-<p>这是一段引用文字<br>可换行，遇上空行隔断</p>
-</blockquote>
-<p>##引用代码<br><code>引用一行可用,
-就算换行也只在一行内，换行算作空格</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">引用多行时可用</span><br><span class="line">均在引用内</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="IOC中bean标签和管理对象细节"><a href="#IOC中bean标签和管理对象细节" class="headerlink" title="IOC中bean标签和管理对象细节"></a>IOC中bean标签和管理对象细节</h4><h5 id="bean-标签作用："><a href="#bean-标签作用：" class="headerlink" title="bean 标签作用："></a>bean 标签作用：</h5><p>用于配置对象让 spring 来创建的。默认情况下它调用的是类中的无参构造函数。如果没有无参构造函数则不能创建成功。<br>1.1 属性：<br>id： 给对象在容器中提供一个唯一标识。用于获取对象。<br>class： 指定类的全限定类名。用于反射创建对象。默认情况下调用无参构造函数。<br>scope： 指定对象的作用范围。</p>
+<ul>
+<li>singleton :默认值，单例的.</li>
+<li>prototype :多例的.</li>
+<li>request :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 request 域中.</li>
+<li>session :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 session 域中.</li>
+<li>global session :WEB 项目中,应用在 Portlet 环境.如果没有 Portlet 环境那么<br>globalSession 相当于 session.用于负载均衡，全局的session<br><img src="/image/%E5%85%A8%E5%B1%80session.png" alt="全局session"><br>init-method： 指定类中的初始化方法名称。<br>destroy-method： 指定类中销毁方法名称。</li>
+</ul>
+<ol start="2">
+<li>bean的作用范围和生命周期<br>单例对象： scope=”singleton”<br>一个应用只有一个对象的实例。它的作用范围就是整个引用。<br>生命周期：<br>对象出生：当应用加载，创建容器时，对象就被创建了。<br>对象活着：只要容器在，对象一直活着。<br>对象死亡：当应用卸载，销毁容器时，对象就被销毁了。<br>多例对象： scope=”prototype”<br>每次访问对象时，都会重新创建对象实例。<br>生命周期：<br>对象出生：当使用对象时，创建新的对象实例。<br>对象活着：只要对象在使用中，就一直活着。<br>对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。</li>
+<li>3.2.3 实例化 Bean 的三种方式<br>第一种方式：使用默认无参构造函数<br>&lt;!–在默认情况下：<br>它会根据默认无参构造函数来创建类对象。如果 bean 中没有默认无参构造函数，将会创建失败。传智播客——专注于 Java、 .Net 和 Php、网页平面设计工程师的培训<br>北京市昌平区建材城西路金燕龙办公楼一层 电话：400-618-9090</li>
+</ol>
+<p>–&gt;<br><bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"><br>第二种方式： spring 管理静态工厂-使用静态工厂的方法创建对象<br>/**</bean></p>
+<ul>
+<li>模拟一个静态工厂，创建业务层实现类</li>
+<li>/<br>public class StaticFactory {<br>public static IAccountService createAccountService(){<br>return new AccountServiceImpl();<br>}<br>}<br>&lt;!– 此种方式是:<br>使用 StaticFactory 类中的静态方法 createAccountService 创建对象，并存入 spring 容器<br>id 属性：指定 bean 的 id，用于从容器中获取<br>class 属性：指定静态工厂的全限定类名<br>factory-method 属性：指定生产对象的静态方法</li>
+</ul>
+<p>–&gt;<br><bean id="accountService" class="com.itheima.factory.StaticFactory" factory-method="createAccountService"></bean><br>第三种方式： spring 管理实例工厂-使用实例工厂的方法创建对象<br>/**</p>
+<ul>
+<li>模拟一个实例工厂，创建业务层实现类</li>
+<li>此工厂创建对象，必须现有工厂实例对象，再调用方法</li>
+<li>/<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceFactory</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IAccountService <span class="title">createAccountService</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> AccountServiceImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<!-- 此种方式是：
+先把工厂的创建交给 spring 来管理。
+然后在使用工厂的 bean 来调用里面的方法
+factory-bean 属性：用于指定实例工厂 bean 的 id。
+factory-method 属性：用于指定实例工厂中创建对象的方法。
+-->
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean <span class="attribute">id</span>=<span class="string">"instancFactory"</span> <span class="attribute">class</span>=<span class="string">"com.itheima.factory.InstanceFactory"</span>&gt;&lt;/bean&gt;</span><br><span class="line">&lt;bean <span class="attribute">id</span>=<span class="string">"accountService"</span> <span class="attribute">factory-bean</span>=<span class="string">"instancFactory"</span></span><br><span class="line"><span class="attribute">factory-method</span>=<span class="string">"createAccountService"</span>&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h4><p>账户的业务层实现类，曾经XML的配置：</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"accountService"</span> <span class="class"><span class="keyword">class</span>="<span class="title">com</span>.<span class="title">itheima</span>.<span class="title">service</span>.<span class="title">impl</span>.<span class="title">AccountServiceImpl</span>"</span></span><br><span class="line">scope=<span class="string">""</span>  init-<span class="function"><span class="keyword">method</span>=</span><span class="string">""</span> destroy-<span class="function"><span class="keyword">method</span>=</span><span class="string">""</span>&gt;</span><br><span class="line">     &lt;<span class="keyword">property</span> name=<span class="string">""</span>  value=<span class="string">""</span> | ref=<span class="string">""</span>&gt;&lt;/<span class="keyword">property</span>&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>用于创建对象的,他们的作用就和在XML配置文件中编写一个<code>&lt;bean&gt;</code>标签实现的功能是一样的</p>
+<ul>
+<li>Component:<br>作用：用于把当前类对象存入spring容器中<br>属性：value：用于指定bean的id。当我们不写时，它的默认值是当前类名，且首字母改小写。</li>
+<li>Controller：一般用在表现层</li>
+<li>Service：一般用在业务层</li>
+<li>Repository：一般用在持久层<br>以上三个注解他们的作用和属性与Component是一模一样。他们三个是spring框架为我们提供明确的三层使用的注解，使我们的三层对象更加清晰</li>
+</ul>
+</li>
+<li><p>用于注入数据的,他们的作用就和在xml配置文件中的bean标签中写一个<code>&lt;property&gt;</code>标签的作用是一样的</p>
+<ul>
+<li><p>Autowired:<br>作用：自动按照类型注入。只要容器中有<strong><em>唯一</em></strong>的一个bean对象类型和要注入的变量类型匹配，就可以注入成功,如果ioc容器中没有任何bean的类型和要注入的变量类型匹配，则报错。如果Ioc容器中有多个类型匹配时：<strong>先匹配类型，再匹配bean的id，如果有相同的id，则注入，如果要注入的属性没有bean的id与它匹配，就报错</strong><br>出现位置：可以是变量上，也可以是方法上<br>细节：在使用注解注入时，set方法就不是必须的了。</p>
+</li>
+<li><p>Qualifier:<br>作用：在按照类中注入的基础之上再按照名称注入。它在给类成员注入时不能单独使用。但是在给方法参数注入时可以（稍后我们讲）<br>属性：value：用于指定注入bean的id。<br>必须和@Autowire一起使用，即</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Autowired</span></span><br><span class="line"><span class="variable">@Qualifier</span>(<span class="string">"beanid"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Resource</p>
+<ul>
+<li>作用：直接按照bean的id注入。它可以独立使用</li>
+<li>属性：</li>
+<li>name：用于指定bean的id。</li>
+<li>以上三个注入都只能注入其他bean类型的数据，而基本类型和String类型无法使用上述注解实现。</li>
+<li>另外，集合类型的注入只能通过XML来实现。</li>
+<li></li>
+<li>Value</li>
+<li>作用：用于注入基本类型和String类型的数据</li>
+<li>属性：</li>
+<li>value：用于指定数据的值。它可以使用spring中SpEL(也就是spring的el表达式）</li>
+<li>SpEL的写法：${表达式}</li>
+<li></li>
+<li>用于改变作用范围的</li>
+<li>他们的作用就和在bean标签中使用scope属性实现的功能是一样的</li>
+<li>Scope</li>
+<li>作用：用于指定bean的作用范围</li>
+<li>属性：</li>
+<li>value：指定范围的取值。常用取值：singleton prototype</li>
+<li></li>
+<li>和生命周期相关 了解</li>
+<li>他们的作用就和在bean标签中使用init-method和destroy-methode的作用是一样的</li>
+<li>PreDestroy</li>
+<li>作用：用于指定销毁方法</li>
+<li>PostConstruct</li>
+<li>作用：用于指定初始化方法<h4 id="spring的配置类代替xml或yml文件"><a href="#spring的配置类代替xml或yml文件" class="headerlink" title="spring的配置类代替xml或yml文件"></a>spring的配置类代替xml或yml文件</h4>它的作用和bean.xml是一样的</li>
+<li>spring中的新注解</li>
+<li>Configuration</li>
+<li>作用：指定当前类是一个配置类</li>
+<li>细节：当配置类作为AnnotationConfigApplicationContext对象创建的参数时，该注解可以不写。</li>
+<li>ComponentScan</li>
+<li>作用：用于通过注解指定spring在创建容器时要扫描的包</li>
+<li>属性：</li>
+<li>value：它和basePackages的作用是一样的，都是用于指定创建容器时要扫描的包。</li>
+<li>我们使用此注解就等同于在xml中配置了:<br><code>&lt;context:component-scan base-package=&quot;com.itheima&quot;&gt;&lt;/context:component-scan&gt;</code></li>
+<li>Bean</li>
+<li>作用：用于把当前方法的返回值作为bean对象存入spring的ioc容器中</li>
+<li>属性:</li>
+<li>name:用于指定bean的id。当不写时，默认值是当前方法的名称</li>
+<li>细节：</li>
+<li>当我们使用注解配置方法时，如果方法有参数，spring框架会去容器中查找有没有可用的bean对象。</li>
+<li>查找的方式和Autowired注解的作用是一样的</li>
+<li>Import</li>
+<li>作用：用于导入其他的配置类</li>
+<li>属性：</li>
+<li>value：用于指定其他配置类的字节码。</li>
+<li>当我们使用Import的注解之后，有Import注解的类就父配置类，而导入的都是子配置类</li>
+<li>PropertySource</li>
+<li>作用：用于指定properties文件的位置</li>
+<li>属性：</li>
+<li>value：指定文件的名称和路径。</li>
+<li>关键字：classpath，表示类路径下</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span> <span class="comment">//表明是配置类</span></span><br><span class="line"><span class="variable">@ComponentScan</span>(<span class="string">"com.itheima"</span>) <span class="comment">//扫描路径</span></span><br><span class="line"><span class="variable">@Import</span>(JdbcConfig.class)	<span class="comment">//导入子配置文件</span></span><br><span class="line"><span class="variable">@PropertySource</span>(<span class="string">"classpath:jdbcConfig.properties"</span>)	<span class="comment">//导入property文件的配置</span></span><br><span class="line">public class SpringConfiguration &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Spring整合junit的配置"><a href="#Spring整合junit的配置" class="headerlink" title="Spring整合junit的配置"></a>Spring整合junit的配置</h4><ul>
+<li>1、导入spring整合junit的jar(坐标)</li>
+<li>2、使用Junit提供的一个注解把原有的main方法替换了，替换成spring提供的</li>
+<li>@Runwith</li>
+<li>3、告知spring的运行器，spring和ioc创建是基于xml还是注解的，并且说明位置</li>
+<li>@ContextConfiguration</li>
+<li>locations：指定xml文件的位置，加上classpath关键字，表示在类路径下</li>
+<li>classes：指定注解类所在地位置</li>
+<li></li>
+<li>当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上<br>#### </li>
+</ul>
+
       
     </div>
 
@@ -548,7 +636,7 @@
   <li class="post-copyright-link">
     <strong>Beitragslink: </strong>
     
-    <a href="http://www.originqx.top/2019/07/04/markdown语法/" title="markdown语法">http://www.originqx.top/2019/07/04/markdown语法/</a>
+    <a href="http://www.originqx.top/2019/07/27/spring的基础注解/" title="spring的基础注解">http://www.originqx.top/2019/07/27/spring的基础注解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.</li>
@@ -567,17 +655,6 @@
     </div>
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
-          
-        </div>
-      
 
       
       
@@ -587,14 +664,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/26/spring定时任务/" rel="next" title="spring 定时任务">
+                <i class="fa fa-chevron-left"></i> spring 定时任务
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/11/spring-springmvc-mybatis-shiro/" rel="prev" title="spring+springmvc+mybatis+shiro">
-                spring+springmvc+mybatis+shiro <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/28/spring动态代理/" rel="prev" title="spring动态代理">
+                spring动态代理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -806,7 +887,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this-is-my-first-blog-congraturation"><span class="nav-number">1.</span> <span class="nav-text">this is my first blog,congraturation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number">2.</span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number">2.1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#最多五级标题"><span class="nav-number">2.1.0.0.0.1.</span> <span class="nav-text">最多五级标题</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接："><span class="nav-number">2.2.</span> <span class="nav-text">超链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体："><span class="nav-number">2.3.</span> <span class="nav-text">字体：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片资源：存放在source-images下"><span class="nav-number">2.4.</span> <span class="nav-text">图片资源：存放在source/images下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表显示：-均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）"><span class="nav-number">2.5.</span> <span class="nav-text">列表显示：* + -均可（当中用一个空格隔开）（多级时与上一级用三个空格隔开）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表："><span class="nav-number">2.6.</span> <span class="nav-text">有序列表：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割行：—或-均可（只需大于三个）"><span class="nav-number">2.7.</span> <span class="nav-text">分割行：—或***均可（只需大于三个）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用文字："><span class="nav-number">2.8.</span> <span class="nav-text">引用文字：</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-的体系结构图"><span class="nav-number">1.</span> <span class="nav-text">spring 的体系结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC中bean标签和管理对象细节"><span class="nav-number">2.</span> <span class="nav-text">IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean-标签作用："><span class="nav-number">2.1.</span> <span class="nav-text">bean 标签作用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用注解"><span class="nav-number">3.</span> <span class="nav-text">常用注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring的配置类代替xml或yml文件"><span class="nav-number">4.</span> <span class="nav-text">spring的配置类代替xml或yml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring整合junit的配置"><span class="nav-number">5.</span> <span class="nav-text">Spring整合junit的配置</span></a></li></ol></div>
             
 
           </div>
@@ -1008,7 +1089,7 @@
 
 <script>
   window.livereOptions = {
-    refer: '2019/07/04/markdown语法/'
+    refer: '2019/07/27/spring的基础注解/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

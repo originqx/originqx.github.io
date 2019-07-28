@@ -105,7 +105,7 @@
 <meta property="og:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png">
-<meta property="og:updated_time" content="2019-07-26T02:46:57.328Z">
+<meta property="og:updated_time" content="2019-07-26T03:32:35.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven的使用">
 <meta name="twitter:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不">
@@ -266,7 +266,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter<span class="badge">3</span></a>
 
   </li>
         
@@ -284,7 +284,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien<span class="badge">5</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien<span class="badge">4</span></a>
 
   </li>
         
@@ -302,7 +302,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv<span class="badge">8</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv<span class="badge">10</span></a>
 
   </li>
 
@@ -398,7 +398,7 @@
                 
               
 
-              <time title="Erstellt: 2019-07-26 10:46:22 / Geändert am: 10:46:57" itemprop="dateCreated datePublished" datetime="2019-07-26T10:46:22+08:00">2019-07-26</time>
+              <time title="Erstellt: 2019-07-26 10:46:22 / Geändert am: 11:32:35" itemprop="dateCreated datePublished" datetime="2019-07-26T10:46:22+08:00">2019-07-26</time>
             </span>
           
 
@@ -452,7 +452,7 @@
               
                 <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
               
-              <span title="Symbole im Artikel gezählt">5.9k</span>
+              <span title="Symbole im Artikel gezählt">7.8k</span>
             </span>
           
 
@@ -524,7 +524,7 @@
 <p>—-进入jar包所在目录运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dfile=fastjson-1.1.37.jar -Dpackaging=jar<br>—-打开cmd直接运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar</p>
 <p>–安装第三方jar包到私服</p>
 <p>–在settings配置文件中添加登录私服第三方登录信息<br><server><br><id>thirdparty</id><br><username>admin</username><br><password>admin123</password><br></server><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
-
+<h4 id="maven内置tomcat8插件："><a href="#maven内置tomcat8插件：" class="headerlink" title="maven内置tomcat8插件："></a>maven内置tomcat8插件：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span><span class="comment">&lt;!--因为标准的maven中央仓库中没有tomcat8的jar包，所以使用其他的库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alfresco-public<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://artifacts.alfresco.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alfresco-public-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>daily<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>beardedgeeks-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://beardedgeeks.googlecode.com/svn/repository/releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>integerSSM<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span><span class="comment">&lt;!--加入插件--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat8-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0-r1655215<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="comment">&lt;!--配置的项目路径--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">server</span>&gt;</span>tomcat8<span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">port</span>&gt;</span>8383<span class="tag">&lt;/<span class="name">port</span>&gt;</span><span class="comment">&lt;!--端口号--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">uriEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">uriEncoding</span>&gt;</span><span class="comment">&lt;!--编码格式，防止乱码--&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -605,6 +605,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/07/26/spring定时任务/" rel="prev" title="spring 定时任务">
+                spring 定时任务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -679,7 +683,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -691,8 +695,6 @@
                 <div class="site-state-item site-state-categories">
                   
                     
-                    
-                      
                     
                       
                     
@@ -714,8 +716,6 @@
                 <div class="site-state-item site-state-tags">
                   
                     
-                    
-                      
                     
                       
                     
@@ -818,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#maven中的dependencies与dependencyManagement的区别："><span class="nav-number">1.</span> <span class="nav-text">maven中的dependencies与dependencyManagement的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven的常见仓库："><span class="nav-number">2.</span> <span class="nav-text">maven的常见仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven常见的命令"><span class="nav-number">3.</span> <span class="nav-text">maven常见的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven生命周期"><span class="nav-number">4.</span> <span class="nav-text">maven生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven的依赖规则"><span class="nav-number">5.</span> <span class="nav-text">maven的依赖规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传递依赖的丢失"><span class="nav-number">6.</span> <span class="nav-text">传递依赖的丢失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven私服"><span class="nav-number">7.</span> <span class="nav-text">maven私服</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jar包到仓库："><span class="nav-number">8.</span> <span class="nav-text">安装jar包到仓库：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#maven中的dependencies与dependencyManagement的区别："><span class="nav-number">1.</span> <span class="nav-text">maven中的dependencies与dependencyManagement的区别：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven的常见仓库："><span class="nav-number">2.</span> <span class="nav-text">maven的常见仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven常见的命令"><span class="nav-number">3.</span> <span class="nav-text">maven常见的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven生命周期"><span class="nav-number">4.</span> <span class="nav-text">maven生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven的依赖规则"><span class="nav-number">5.</span> <span class="nav-text">maven的依赖规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传递依赖的丢失"><span class="nav-number">6.</span> <span class="nav-text">传递依赖的丢失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven私服"><span class="nav-number">7.</span> <span class="nav-text">maven私服</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jar包到仓库："><span class="nav-number">8.</span> <span class="nav-text">安装jar包到仓库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven内置tomcat8插件："><span class="nav-number">9.</span> <span class="nav-text">maven内置tomcat8插件：</span></a></li></ol></div>
             
 
           </div>
@@ -853,7 +853,7 @@
     
       <span class="post-meta-item-text">Insgesamt gezählte Symbole: </span>
     
-    <span title="Insgesamt gezählte Symbole">50k</span>
+    <span title="Insgesamt gezählte Symbole">63k</span>
   
 
   
