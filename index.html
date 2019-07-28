@@ -634,7 +634,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-07-28 14:12:03" itemprop="dateModified" datetime="2019-07-28T14:12:03+08:00">2019-07-28</time>
+                <time title="Geändert am: 2019-07-28 14:24:00" itemprop="dateModified" datetime="2019-07-28T14:24:00+08:00">2019-07-28</time>
               </span>
             
           
@@ -683,7 +683,7 @@
       
         
           
-            <h4 id="spring-的体系结构图"><a href="#spring-的体系结构图" class="headerlink" title="spring 的体系结构图"></a>spring 的体系结构图</h4><p><img src="/images/spring%E5%AE%B9%E5%99%A8" alt="spring容器" title="容器"></p>
+            <h4 id="spring-的体系结构图"><a href="#spring-的体系结构图" class="headerlink" title="spring 的体系结构图"></a>spring 的体系结构图</h4><p><img src="/images/spring%E5%AE%B9%E5%99%A8.jpg" alt="spring容器"></p>
 <ul>
 <li>spring在类中获取配置文件有两种方式：<ol>
 <li>ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名<ol start="2">
@@ -699,7 +699,7 @@
 <li>prototype :多例的.</li>
 <li>request :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 request 域中.</li>
 <li>session :WEB 项目中,Spring 创建一个 Bean 的对象,将对象存入到 session 域中.</li>
-<li>global session :WEB 项目中,应用在 Portlet 环境.如果没有 Portlet 环境那么<br>globalSession 相当于 session.用于负载均衡，全局的session<br><img src="/image/%E5%85%A8%E5%B1%80session.png" alt="全局session"><br>init-method： 指定类中的初始化方法名称。<br>destroy-method： 指定类中销毁方法名称。</li>
+<li>global session :WEB 项目中,应用在 Portlet 环境.如果没有 Portlet 环境那么<br>globalSession 相当于 session.用于负载均衡，全局的session<br><img src="/images/%E5%85%A8%E5%B1%80session.png" alt="全局session"><br>init-method： 指定类中的初始化方法名称。<br>destroy-method： 指定类中销毁方法名称。</li>
 </ul>
 <ol start="2">
 <li>bean的作用范围和生命周期<br>单例对象： scope=”singleton”<br>一个应用只有一个对象的实例。它的作用范围就是整个引用。<br>生命周期：<br>对象出生：当应用加载，创建容器时，对象就被创建了。<br>对象活着：只要容器在，对象一直活着。<br>对象死亡：当应用卸载，销毁容器时，对象就被销毁了。<br>多例对象： scope=”prototype”<br>每次访问对象时，都会重新创建对象实例。<br>生命周期：<br>对象出生：当使用对象时，创建新的对象实例。<br>对象活着：只要对象在使用中，就一直活着。<br>对象死亡：当对象长时间不用时，被 java 的垃圾回收器回收了。</li>
@@ -815,7 +815,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
 <li>locations：指定xml文件的位置，加上classpath关键字，表示在类路径下</li>
 <li>classes：指定注解类所在地位置</li>
 <li></li>
-<li>当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上<br>#### </li>
+<li>当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上<br>####</li>
 </ul>
 
           
