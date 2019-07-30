@@ -105,7 +105,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.originqx.top/images/spring%E5%AE%B9%E5%99%A8.jpg">
 <meta property="og:image" content="http://www.originqx.top/images/%E5%85%A8%E5%B1%80session.png">
-<meta property="og:updated_time" content="2019-07-28T06:24:00.077Z">
+<meta property="og:updated_time" content="2019-07-30T02:10:12.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring的基础注解">
 <meta name="twitter:description" content="spring 的体系结构图  spring在类中获取配置文件有两种方式： ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名 FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统      IOC中bean标签和管理对象细节bean 标签作用：用于配置对象让 spring 来创建的。默认情况下它调用">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-07-28 14:24:00" itemprop="dateModified" datetime="2019-07-28T14:24:00+08:00">2019-07-28</time>
+                <time title="Geändert am: 2019-07-30 10:10:12" itemprop="dateModified" datetime="2019-07-30T10:10:12+08:00">2019-07-30</time>
               </span>
             
           
@@ -447,7 +447,7 @@
               
                 <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
               
-              <span title="Symbole im Artikel gezählt">4.4k</span>
+              <span title="Symbole im Artikel gezählt">7.2k</span>
             </span>
           
 
@@ -600,9 +600,56 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
 <li>locations：指定xml文件的位置，加上classpath关键字，表示在类路径下</li>
 <li>classes：指定注解类所在地位置</li>
 <li></li>
-<li>当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上<br>####</li>
+<li>当我们使用spring 5.x版本的时候，要求junit的jar必须是4.12及以上<h4 id="深入理解JAVA注解"><a href="#深入理解JAVA注解" class="headerlink" title="深入理解JAVA注解"></a>深入理解JAVA注解</h4></li>
 </ul>
+<p>　　要深入学习注解，我们就必须能定义自己的注解，并使用注解，在定义自己的注解之前，我们就必须要了解Java为我们提供的元注解和相关定义注解的语法。</p>
+<p>1、元注解（meta-annotation）：</p>
+<p>　　元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：</p>
+<ol>
+<li>@Target,</li>
+<li>@Retention,</li>
+<li>@Documented,</li>
+<li>@Inherited  </li>
+</ol>
+<p>这些类型和它们所支持的类在java.lang.annotation包中可以找到。下面我们看一下每个元注解的作用和相应分参数的使用说明。</p>
+<p>@Target：</p>
+<p>　　　@Target说明了Annotation所修饰的对象范围：Annotation可被用于 packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）。在Annotation类型的声明中使用了target可更加明晰其修饰的目标。</p>
+<p>　　作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）</p>
+<p>　　取值(ElementType)有：</p>
+<ol>
+<li>CONSTRUCTOR:用于描述构造器</li>
+<li>FIELD:用于描述域</li>
+<li>LOCAL_VARIABLE:用于描述局部变量</li>
+<li>METHOD:用于描述方法</li>
+<li>PACKAGE:用于描述包</li>
+<li>PARAMETER:用于描述参数</li>
+<li>TYPE:用于描述类、接口(包括注解类型) 或enum声明</li>
+</ol>
+<p>使用实例：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE)</span><br><span class="line"><span class="keyword">public</span> @<span class="class"><span class="keyword">interface</span> <span class="title">Table</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据表名称注解，默认值为类名称</span></span><br><span class="line"><span class="comment">     * @return</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> tableName() <span class="keyword">default</span> <span class="string">"className"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Target</span>(ElementType.FIELD)</span><br><span class="line">public <span class="variable">@interface</span> NoDBColumn &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注解Table 可以用于注解类、接口(包括注解类型) 或enum声明,而注解NoDBColumn仅可用于注解类的成员变量。</p>
+<p>@Retention：</p>
+<p>　　@Retention定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取（请注意并不影响class的执行，因为Annotation与class在使用上是被分离的）。使用这个meta-Annotation可以对 Annotation的“生命周期”限制。</p>
+<p>　　作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）</p>
+<p>　　取值（RetentionPoicy）有：</p>
+<ol>
+<li>SOURCE:在源文件中有效（即源文件保留）</li>
+<li>CLASS:在class文件中有效（即class保留）</li>
+<li>RUNTIME:在运行时有效（即运行时保留）</li>
+</ol>
+<p>　　Retention meta-annotation类型有唯一的value作为成员，它的取值来自java.lang.annotation.RetentionPolicy的枚举类型值。具体实例如下：</p>
+<p>复制代码<br>@Target(ElementType.FIELD)<br>@Retention(RetentionPolicy.RUNTIME)<br>public @interface Column {<br>    public String name() default “fieldName”;<br>    public String setFuncName() default “setField”;<br>    public String getFuncName() default “getField”;<br>    public boolean defaultDBValue() default false;<br>}<br>复制代码<br>　Column注解的的RetentionPolicy的属性值是RUTIME,这样注解处理器可以通过反射，获取到该注解的属性值，从而去做一些运行时的逻辑处理</p>
+<p>　　@Documented:</p>
+<p>　　@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</p>
+<p>复制代码<br>@Target(ElementType.FIELD)<br>@Retention(RetentionPolicy.RUNTIME)<br>@Documented<br>public @interface Column {<br>    public String name() default “fieldName”;<br>    public String setFuncName() default “setField”;<br>    public String getFuncName() default “getField”;<br>    public boolean defaultDBValue() default false;<br>}<br>复制代码<br>@Inherited：</p>
+<p>　　@Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</p>
+<p>　　注意：@Inherited annotation类型是被标注过的class的子类所继承。类并不从它所实现的接口继承annotation，方法并不从它所重载的方法继承annotation。</p>
+<p>　　当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。</p>
+<p>　　实例代码：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Inherited</span></span><br><span class="line">public <span class="variable">@interface</span> Greeting &#123;</span><br><span class="line">    <span class="selector-tag">public</span> <span class="selector-tag">enum</span> <span class="selector-tag">FontColor</span>&#123; <span class="selector-tag">BULE</span>,<span class="selector-tag">RED</span>,<span class="selector-tag">GREEN</span>&#125;;</span><br><span class="line">    <span class="selector-tag">String</span> <span class="selector-tag">name</span>();</span><br><span class="line">    <span class="selector-tag">FontColor</span> <span class="selector-tag">fontColor</span>() <span class="selector-tag">default</span> <span class="selector-tag">FontColor</span><span class="selector-class">.GREEN</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -887,7 +934,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-的体系结构图"><span class="nav-number">1.</span> <span class="nav-text">spring 的体系结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC中bean标签和管理对象细节"><span class="nav-number">2.</span> <span class="nav-text">IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean-标签作用："><span class="nav-number">2.1.</span> <span class="nav-text">bean 标签作用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用注解"><span class="nav-number">3.</span> <span class="nav-text">常用注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring的配置类代替xml或yml文件"><span class="nav-number">4.</span> <span class="nav-text">spring的配置类代替xml或yml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring整合junit的配置"><span class="nav-number">5.</span> <span class="nav-text">Spring整合junit的配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-的体系结构图"><span class="nav-number">1.</span> <span class="nav-text">spring 的体系结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC中bean标签和管理对象细节"><span class="nav-number">2.</span> <span class="nav-text">IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean-标签作用："><span class="nav-number">2.1.</span> <span class="nav-text">bean 标签作用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用注解"><span class="nav-number">3.</span> <span class="nav-text">常用注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring的配置类代替xml或yml文件"><span class="nav-number">4.</span> <span class="nav-text">spring的配置类代替xml或yml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring整合junit的配置"><span class="nav-number">5.</span> <span class="nav-text">Spring整合junit的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解JAVA注解"><span class="nav-number">6.</span> <span class="nav-text">深入理解JAVA注解</span></a></li></ol></div>
             
 
           </div>
@@ -922,7 +969,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
     
       <span class="post-meta-item-text">Insgesamt gezählte Symbole: </span>
     
-    <span title="Insgesamt gezählte Symbole">63k</span>
+    <span title="Insgesamt gezählte Symbole">65k</span>
   
 
   
