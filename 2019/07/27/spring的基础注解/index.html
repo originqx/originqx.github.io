@@ -105,7 +105,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.originqx.top/images/spring%E5%AE%B9%E5%99%A8.jpg">
 <meta property="og:image" content="http://www.originqx.top/images/%E5%85%A8%E5%B1%80session.png">
-<meta property="og:updated_time" content="2019-07-30T02:10:12.726Z">
+<meta property="og:updated_time" content="2019-07-31T05:56:05.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring的基础注解">
 <meta name="twitter:description" content="spring 的体系结构图  spring在类中获取配置文件有两种方式： ClassPathXmlApplicationContext(“path1”)-相对路径，只需传文件名 FileSystemXmlApplicationContext(“path2”)-绝对路径，文件系统      IOC中bean标签和管理对象细节bean 标签作用：用于配置对象让 spring 来创建的。默认情况下它调用">
@@ -201,7 +201,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="Cambiar a barra de navegación">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,7 +230,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Inicio</a>
 
   </li>
         
@@ -248,7 +248,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Sobre mi</a>
 
   </li>
         
@@ -266,7 +266,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter<span class="badge">3</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Etiquetas<span class="badge">3</span></a>
 
   </li>
         
@@ -284,7 +284,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categorías<span class="badge">4</span></a>
 
   </li>
         
@@ -302,7 +302,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv<span class="badge">11</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archivo<span class="badge">11</span></a>
 
   </li>
 
@@ -391,14 +391,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-07-27 10:20:14" itemprop="dateCreated datePublished" datetime="2019-07-27T10:20:14+08:00">2019-07-27</time>
+              <time title="Creado por: 2019-07-27 10:20:14" itemprop="dateCreated datePublished" datetime="2019-07-27T10:20:14+08:00">2019-07-27</time>
             </span>
           
 
@@ -411,9 +411,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-07-30 10:10:12" itemprop="dateModified" datetime="2019-07-30T10:10:12+08:00">2019-07-30</time>
+                <time title="Modificado por: 2019-07-31 13:56:05" itemprop="dateModified" datetime="2019-07-31T13:56:05+08:00">2019-07-31</time>
               </span>
             
           
@@ -432,7 +432,7 @@
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
-                 Aufrufe:  
+                 Visitas:  
                 <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
               </span>
             </span>
@@ -445,9 +445,9 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
+                <span class="post-meta-item-text">Cantidad de caracteres en el articulo: </span>
               
-              <span title="Symbole im Artikel gezählt">7.2k</span>
+              <span title="Cantidad de caracteres en el articulo">8.1k</span>
             </span>
           
 
@@ -650,6 +650,17 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
 <p>　　当@Inherited annotation类型标注的annotation的Retention是RetentionPolicy.RUNTIME，则反射API增强了这种继承性。如果我们使用java.lang.reflect去查询一个@Inherited annotation类型的annotation时，反射代码检查将展开工作：检查class和其父类，直到发现指定的annotation类型被发现，或者到达类继承结构的顶层。</p>
 <p>　　实例代码：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Inherited</span></span><br><span class="line">public <span class="variable">@interface</span> Greeting &#123;</span><br><span class="line">    <span class="selector-tag">public</span> <span class="selector-tag">enum</span> <span class="selector-tag">FontColor</span>&#123; <span class="selector-tag">BULE</span>,<span class="selector-tag">RED</span>,<span class="selector-tag">GREEN</span>&#125;;</span><br><span class="line">    <span class="selector-tag">String</span> <span class="selector-tag">name</span>();</span><br><span class="line">    <span class="selector-tag">FontColor</span> <span class="selector-tag">fontColor</span>() <span class="selector-tag">default</span> <span class="selector-tag">FontColor</span><span class="selector-class">.GREEN</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@Data注解<ul>
+<li>为类加上get/set，equals(),hashCode(),toString()等方法。</li>
+</ul>
+</li>
+</ul>
+<h5 id="常见的验证注解"><a href="#常见的验证注解" class="headerlink" title="常见的验证注解"></a>常见的验证注解</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Null</span>  被注释的元素必须为null</span><br><span class="line"><span class="variable">@NotNull</span>  被注释的元素不能为null</span><br><span class="line"><span class="variable">@AssertTrue</span>  被注释的元素必须为true</span><br><span class="line"><span class="variable">@AssertFalse</span>  被注释的元素必须为false</span><br><span class="line"><span class="variable">@Min</span>(value)  被注释的元素必须是一个数字，其值必须大于等于指定的最小值</span><br><span class="line"><span class="variable">@Max</span>(value)  被注释的元素必须是一个数字，其值必须小于等于指定的最大值</span><br><span class="line"><span class="variable">@DecimalMin</span>(value)  被注释的元素必须是一个数字，其值必须大于等于指定的最小值</span><br><span class="line"><span class="variable">@DecimalMax</span>(value)  被注释的元素必须是一个数字，其值必须小于等于指定的最大值</span><br><span class="line"><span class="variable">@Size</span>(max,min)  被注释的元素的大小必须在指定的范围内。</span><br><span class="line"><span class="variable">@Digits</span>(integer,fraction)  被注释的元素必须是一个数字，其值必须在可接受的范围内</span><br><span class="line"><span class="variable">@Past</span>  被注释的元素必须是一个过去的日期</span><br><span class="line"><span class="variable">@Future</span>  被注释的元素必须是一个将来的日期</span><br><span class="line"><span class="variable">@Pattern</span>(value) 被注释的元素必须符合指定的正则表达式。</span><br><span class="line"><span class="variable">@Email</span> 被注释的元素必须是电子邮件地址</span><br><span class="line"><span class="variable">@Length</span> 被注释的字符串的大小必须在指定的范围内</span><br><span class="line"><span class="variable">@NotEmpty</span>  被注释的字符串必须非空</span><br><span class="line"><span class="variable">@Range</span>  被注释的元素必须在合适的范围内</span><br></pre></td></tr></table></figure>
+
+<p>example :<br>vo 页面传过来的数据进行校验<br>inferface : 只是作为标记一个组别 可以在vo验证的某个字段上面加入多个组别,这样没有加入的组别就不会验证这个字段<br>controller: 需要 加入 @Validated (GroupInterface1.class) //GroupInterface1.class是定义的分组 GroupInterface2.class 需要校验的字段是不会验证的</p>
+
       
     </div>
 
@@ -679,14 +690,14 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
 
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Beitragsautor:  </strong>QX</li>
+    <strong>Autor de la entrada:  </strong>QX</li>
   <li class="post-copyright-link">
-    <strong>Beitragslink: </strong>
+    <strong>Enlace a la entrada: </strong>
     
     <a href="http://www.originqx.top/2019/07/27/spring的基础注解/" title="spring的基础注解">http://www.originqx.top/2019/07/27/spring的基础注解/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.</li>
+    <strong>Copyright:  </strong>Todos los artículos de este blog están licenciados bajo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> a no ser que se especifique una licencia adicional.</li>
 </ul>
 
       </div>
@@ -774,10 +785,10 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Tabla de contenidos
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Inicio
           </li>
         </ul>
       
@@ -800,7 +811,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">entradas</span>
                   </a>
                 </div>
               
@@ -821,7 +832,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categorías</span>
                   
                 </div>
               
@@ -840,7 +851,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">schlagwörter</span>
+                    <span class="site-state-item-name">tags</span>
                   
                 </div>
               
@@ -934,7 +945,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-的体系结构图"><span class="nav-number">1.</span> <span class="nav-text">spring 的体系结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC中bean标签和管理对象细节"><span class="nav-number">2.</span> <span class="nav-text">IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean-标签作用："><span class="nav-number">2.1.</span> <span class="nav-text">bean 标签作用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用注解"><span class="nav-number">3.</span> <span class="nav-text">常用注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring的配置类代替xml或yml文件"><span class="nav-number">4.</span> <span class="nav-text">spring的配置类代替xml或yml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring整合junit的配置"><span class="nav-number">5.</span> <span class="nav-text">Spring整合junit的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解JAVA注解"><span class="nav-number">6.</span> <span class="nav-text">深入理解JAVA注解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-的体系结构图"><span class="nav-number">1.</span> <span class="nav-text">spring 的体系结构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC中bean标签和管理对象细节"><span class="nav-number">2.</span> <span class="nav-text">IOC中bean标签和管理对象细节</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean-标签作用："><span class="nav-number">2.1.</span> <span class="nav-text">bean 标签作用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用注解"><span class="nav-number">3.</span> <span class="nav-text">常用注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring的配置类代替xml或yml文件"><span class="nav-number">4.</span> <span class="nav-text">spring的配置类代替xml或yml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring整合junit的配置"><span class="nav-number">5.</span> <span class="nav-text">Spring整合junit的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解JAVA注解"><span class="nav-number">6.</span> <span class="nav-text">深入理解JAVA注解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的验证注解"><span class="nav-number">6.1.</span> <span class="nav-text">常见的验证注解</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -967,9 +978,9 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">Insgesamt gezählte Symbole: </span>
+      <span class="post-meta-item-text">Cantidad total de caracteres: </span>
     
-    <span title="Insgesamt gezählte Symbole">76k</span>
+    <span title="Cantidad total de caracteres">77k</span>
   
 
   
@@ -991,7 +1002,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
     <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
     </span>
-    <span class="site-uv" title="Alle Besucher">
+    <span class="site-uv" title="Visitantes totales">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
@@ -1004,7 +1015,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
     <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
     </span>
-    <span class="site-pv" title="Alle Aufrufe">
+    <span class="site-pv" title="Visitas totales">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1183,7 +1194,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
   $('.highlight').not('.gist .highlight').each(function(i, e) {
     var $wrap = $('<div>').addClass('highlight-wrap');
     $(e).after($wrap);
-    $wrap.append($('<button>').addClass('copy-btn').append('Kopieren').on('click', function(e) {
+    $wrap.append($('<button>').addClass('copy-btn').append('Copiar').on('click', function(e) {
       var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
         return $(e).text();
       }).toArray().join('\n');
@@ -1202,8 +1213,8 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
       ta.readOnly = false;
       var result = document.execCommand('copy');
       
-        if (result) $(this).text('Kopiert');
-        else $(this).text('Kopieren fehlgeschlagen');
+        if (result) $(this).text('Copiado');
+        else $(this).text('Copiar falló');
       
       ta.blur(); // For iOS
       $(this).blur();
@@ -1214,7 +1225,7 @@ factory-method 属性：用于指定实例工厂中创建对象的方法。
     })).on('mouseleave', function(e) {
       var $b = $(this).find('.copy-btn');
       setTimeout(function() {
-        $b.text('Kopieren');
+        $b.text('Copiar');
       }, 300);
     }).append(e);
   })
