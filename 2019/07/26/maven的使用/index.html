@@ -136,12 +136,12 @@
 <meta property="og:site_name" content="originqxの博客">
 <meta property="og:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png">
+<meta property="og:image" content="http://www.originqx.top/images/传递依赖下来的包是否能用.png">
 <meta property="og:updated_time" content="2019-07-26T03:32:35.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven的使用">
 <meta name="twitter:description" content="maven中的dependencies与dependencyManagement的区别：由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承； 在父模块的pom中有dependencies和dependencyManagement两种依赖 其中在dependencies中的依赖会被子模块继承， 而dependencyManagement是jar包的声明，在其中定义的jar不">
-<meta name="twitter:image" content="http://www.originqx.top/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png">
+<meta name="twitter:image" content="http://www.originqx.top/images/传递依赖下来的包是否能用.png">
 
 
 
@@ -233,7 +233,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -262,7 +262,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -280,7 +280,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
 
   </li>
         
@@ -298,7 +298,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">3</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter<span class="badge">3</span></a>
 
   </li>
         
@@ -316,7 +316,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien<span class="badge">4</span></a>
 
   </li>
         
@@ -334,7 +334,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv<span class="badge">12</span></a>
 
   </li>
         
@@ -352,7 +352,7 @@
       
     
 
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Schedule</a>
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Zeitplan</a>
 
   </li>
 
@@ -363,7 +363,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Suche</a>
         </li>
       
     </ul>
@@ -386,7 +386,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Suche..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -477,14 +477,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-07-26 10:46:22 / Modified: 11:32:35" itemprop="dateCreated datePublished" datetime="2019-07-26T10:46:22+08:00">2019-07-26</time>
+              <time title="Erstellt: 2019-07-26 10:46:22 / Geändert am: 11:32:35" itemprop="dateCreated datePublished" datetime="2019-07-26T10:46:22+08:00">2019-07-26</time>
             </span>
           
 
@@ -500,7 +500,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maven/" itemprop="url" rel="index"><span itemprop="name">maven</span></a></span>
@@ -523,7 +523,7 @@
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
-                 Views:  
+                 Aufrufe:  
                 <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
               </span>
             </span>
@@ -536,9 +536,9 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Symbols count in article: </span>
+                <span class="post-meta-item-text">Symbole im Artikel gezählt: </span>
               
-              <span title="Symbols count in article">7.8k</span>
+              <span title="Symbole im Artikel gezählt"></span>
             </span>
           
 
@@ -563,12 +563,12 @@
 <h4 id="maven中的dependencies与dependencyManagement的区别："><a href="#maven中的dependencies与dependencyManagement的区别：" class="headerlink" title="maven中的dependencies与dependencyManagement的区别："></a>maven中的dependencies与dependencyManagement的区别：</h4><pre><code>由于在maven中一般有多个模块，所以一般定义一个父模块，让其他的模块继承；
 在父模块的pom中有dependencies和dependencyManagement两种依赖
 其中在dependencies中的依赖会被子模块继承，
-而dependencyManagement是jar包的声明，在其中定义的jar不会被子模块继承，而是在子模块中可不用声明jar包的版本，会自动的使用父模块中的dependencyManagement的版本号，而子模块如果也声明了版本号，则会用子模块声明的版本号，这样的好处是可以统一所有的子模块的版本号；避免发生版本冲突</code></pre><h4 id="maven的常见仓库："><a href="#maven的常见仓库：" class="headerlink" title="maven的常见仓库："></a>maven的常见仓库：</h4><ul>
+而dependencyManagement是jar包的声明，在其中定义的jar不会被子模块继承，而是在子模块中可不用声明jar包的版本，会自动的使用父模块中的dependencyManagement的版本号，而子模块如果也声明了版本号，则会用子模块声明的版本号，这样的好处是可以统一所有的子模块的版本号；避免发生版本冲突
+</code></pre><h4 id="maven的常见仓库："><a href="#maven的常见仓库：" class="headerlink" title="maven的常见仓库："></a>maven的常见仓库：</h4><ul>
 <li>本地仓库:在settings.xml中配置路径，<localrepository>E:\kaifa\mavenware</localrepository></li>
 <li>远程仓库(一般指私服):即公司中的maven仓库服务器。</li>
 <li>中央仓库:maven的管理者的仓库：<a href="http://repo1.maven.org/maven2/" target="_blank" rel="noopener">中央仓库地址</a><br><a href="https://mvnrepository.com/" target="_blank" rel="noopener">常用的查找pom依赖的地址</a></li>
 <li>一般可以配置maven的中央仓库为阿里的库，国内访问比较快.<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <h4 id="maven常见的命令"><a href="#maven常见的命令" class="headerlink" title="maven常见的命令"></a>maven常见的命令</h4><ul>
@@ -586,14 +586,12 @@
 <h4 id="maven的依赖规则"><a href="#maven的依赖规则" class="headerlink" title="maven的依赖规则"></a>maven的依赖规则</h4><ul>
 <li>1、第一声明者优先原则:在 pom 文件定义依赖，先声明的依赖为准。</li>
 <li>2、路径近者优先原则:在pom中直接定义的依赖要比传递过来的依赖优先级要高。<br> 当发生依赖冲突的时候，可以排除冲突的依赖： <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>***<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">其中的***为jar包的坐标地址</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
-<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8C%85%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8.png" alt="传递规则" title="传递规则"></p>
+<h4 id="传递依赖的丢失"><a href="#传递依赖的丢失" class="headerlink" title="传递依赖的丢失"></a>传递依赖的丢失</h4><p>依照图片的原则：<br><img src="/images/传递依赖下来的包是否能用.png" alt="传递规则" title="传递规则"></p>
 <h4 id="maven私服"><a href="#maven私服" class="headerlink" title="maven私服"></a>maven私服</h4><p>安装nexus </p>
 <ul>
-<li><p>进入到nexus的安装目录，打开终端cmd，执行<code>nexus.bat install</code>，然后<code>nexus.bat start</code> 查看windows的服务里面看nexus服务启动，可在<a href="http://localhost:8081" target="_blank" rel="noopener">localhost:8081</a>查看服务的启动，默认的账户名为<code>admin</code> 密码为<code>admin123</code><br>将项目发布到私服前要将配置maven的配置文件：</p>
-</li>
+<li>进入到nexus的安装目录，打开终端cmd，执行<code>nexus.bat install</code>，然后<code>nexus.bat start</code> 查看windows的服务里面看nexus服务启动，可在<a href="http://localhost:8081" target="_blank" rel="noopener">localhost:8081</a>查看服务的启动，默认的账户名为<code>admin</code> 密码为<code>admin123</code><br>将项目发布到私服前要将配置maven的配置文件：</li>
 <li><p>配置服务版本的密码</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到正式版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到测试版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>thirdparty<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--发布到第三方版本库--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -602,14 +600,17 @@
 </li>
 <li><p>使用 profile 定义仓库需要激活才可生效。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activeProfiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">activeProfile</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">activeProfile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activeProfiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 <p>执行mvn deploy根据项目的pom文件的版本发布到不同版本库，</p>
 <h4 id="安装jar包到仓库："><a href="#安装jar包到仓库：" class="headerlink" title="安装jar包到仓库："></a>安装jar包到仓库：</h4><p>–安装第三方jar包到本地仓库</p>
 <p>—-进入jar包所在目录运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dfile=fastjson-1.1.37.jar -Dpackaging=jar<br>—-打开cmd直接运行<br>mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar</p>
 <p>–安装第三方jar包到私服</p>
-<p>–在settings配置文件中添加登录私服第三方登录信息<br><server><br><id>thirdparty</id><br><username>admin</username><br><password>admin123</password><br></server><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
+<p>–在settings配置文件中添加登录私服第三方登录信息</p>
+<p><server></server></p>
+<p><id>thirdparty</id></p>
+<p><username>admin</username></p>
+<p><password>admin123</password><br><br>—-进入jar包所在目录运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty<br>—-打开cmd直接运行<br>mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=1.1.37 -Dpackaging=jar -Dfile=D:\PanDownload\01.maven分模块构建\资源\资料\安装第三方jar包\fastjson-1.1.37.jar -Durl=<a href="http://localhost:8081/nexus/content/repositories/thirdparty/" target="_blank" rel="noopener">http://localhost:8081/nexus/content/repositories/thirdparty/</a> -DrepositoryId=thirdparty</p>
 <h4 id="maven内置tomcat8插件："><a href="#maven内置tomcat8插件：" class="headerlink" title="maven内置tomcat8插件："></a>maven内置tomcat8插件：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span><span class="comment">&lt;!--因为标准的maven中央仓库中没有tomcat8的jar包，所以使用其他的库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alfresco-public<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://artifacts.alfresco.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alfresco-public-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>daily<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>beardedgeeks-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://beardedgeeks.googlecode.com/svn/repository/releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>integerSSM<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span><span class="comment">&lt;!--加入插件--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat8-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0-r1655215<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="comment">&lt;!--配置的项目路径--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">server</span>&gt;</span>tomcat8<span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">port</span>&gt;</span>8383<span class="tag">&lt;/<span class="name">port</span>&gt;</span><span class="comment">&lt;!--端口号--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">uriEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">uriEncoding</span>&gt;</span><span class="comment">&lt;!--编码格式，防止乱码--&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">goal</span>&gt;</span>run<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
@@ -640,14 +641,14 @@
 
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author:  </strong>QX</li>
+    <strong>Beitragsautor:  </strong>QX</li>
   <li class="post-copyright-link">
-    <strong>Post link: </strong>
+    <strong>Beitragslink: </strong>
     
     <a href="http://www.originqx.top/2019/07/26/maven的使用/" title="maven的使用">http://www.originqx.top/2019/07/26/maven的使用/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+    <strong>Urheberrechtshinweis:  </strong>Alle Artikel in diesem Blog sind unter <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> lizenziert, außer es wird anders angegeben.</li>
 </ul>
 
       </div>
@@ -744,10 +745,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -772,7 +773,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">12</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -793,7 +794,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   
                 </div>
               
@@ -812,7 +813,7 @@
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
               
@@ -939,9 +940,9 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">Symbols count total: </span>
+      <span class="post-meta-item-text">Insgesamt gezählte Symbole: </span>
     
-    <span title="Symbols count total">82k</span>
+    <span title="Insgesamt gezählte Symbole"></span>
   
 
   
@@ -966,7 +967,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-user"></i>
     </span>
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="Alle Besucher">
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
@@ -979,7 +980,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-eye"></i>
     </span>
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="Alle Aufrufe">
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
   
@@ -1150,7 +1151,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1496,7 +1497,7 @@
   $('.highlight').not('.gist .highlight').each(function(i, e) {
     var $wrap = $('<div>').addClass('highlight-wrap');
     $(e).after($wrap);
-    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+    $wrap.append($('<button>').addClass('copy-btn').append('Kopieren').on('click', function(e) {
       var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
         return $(e).text();
       }).toArray().join('\n');
@@ -1515,8 +1516,8 @@
       ta.readOnly = false;
       var result = document.execCommand('copy');
       
-        if (result) $(this).text('Copied');
-        else $(this).text('Copy failed');
+        if (result) $(this).text('Kopiert');
+        else $(this).text('Kopieren fehlgeschlagen');
       
       ta.blur(); // For iOS
       $(this).blur();
@@ -1527,7 +1528,7 @@
     })).on('mouseleave', function(e) {
       var $b = $(this).find('.copy-btn');
       setTimeout(function() {
-        $b.text('Copy');
+        $b.text('Kopieren');
       }, 300);
     }).append(e);
   })
@@ -1539,5 +1540,5 @@
   
 
   <script type="text/javascript" src="/js/clicklove.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</body>
 </html>
